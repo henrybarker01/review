@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:custom="clr-namespace:BreathTechRelease.CustomControls"
+             ios:Page.UseSafeArea="true"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             x:Class="BreathTechRelease.Views.MainView"
+             BackgroundColor="#FFF"
+             NavigationPage.HasBackButton="False"
+             >
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <!--<Image Source="" HorizontalOptions="Start" HeightRequest="40" WidthRequest="40" Margin="0,5,5,10"/>-->
+            <Label Text="PATHS"
+                   FontFamily="{StaticResource BoldFont}"
+                   Margin="0,0,0,0"
+                   TextColor="#8C8C8C"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="20"
+                   VerticalOptions="CenterAndExpand" 
+                   />
+            <!-- <Button
+                        x:Name="searchImage"
+                        TextColor="#c6c6c6"
+                        Clicked="Search_Pressed"
+                        CornerRadius="15"
+                        BorderColor="White"
+                        HeightRequest="25"
+                        WidthRequest="25"
+                        HorizontalOptions="End"
+                        ImageSource="search.png"
+                        
+                        BackgroundColor="White"
+                        />-->
+            <Image x:Name="searchImage" Source="search.png" WidthRequest="30" HeightRequest="30" VerticalOptions="CenterAndExpand"
+                   >
+                <Image.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0, 0, 5, 0" />
+                        <On Platform="Android" Value="0, 0, 10, 0" />
+                    </OnPlatform>
+                </Image.Margin>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Search_Pressed"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <!--<Image x:Name="searchImage"  Source="search.png" HorizontalOptions="End"  Margin="0,0,5,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Search_Pressed"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>-->
+        </StackLayout>
+
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <RelativeLayout>
+            <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type= RelativeToParent,
+                       Property=Width,Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression
+                       Type=RelativeToParent,Property=Height,Factor=1}">
+                <StackLayout VerticalOptions="FillAndExpand">
+
+                    <StackLayout>
+                        <SearchBar x:Name="searchBar"
+                   HorizontalOptions="Center"
+                   FontFamily="{StaticResource BoldFont}" 
+                   VerticalOptions="CenterAndExpand"
+                   Placeholder="Search..."
+                   CancelButtonColor="#26304e"
+                           IsVisible="false"
+                   PlaceholderColor="#c6c6c6"  
+                   HorizontalTextAlignment="Start"
+                   TextChanged="OnTextChanged"
+                   
+
+                       />
+
+                    </StackLayout>
+
+
+                    <StackLayout x:Name="stack" IsVisible="false" BackgroundColor="White" Spacing="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <ListView   x:Name="ItemListView"
+                                IsVisible="false"
+                                Margin="0"
+                                RowHeight="200"
+                                BackgroundColor="White"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                ItemTapped="ItemListView_ItemTapped" 
+                                android:ListView.IsFastScrollEnabled="True"
+                                HasUnevenRows="False"
+                                SeparatorVisibility="None">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <custom:CustomViewCell SelectedItemBackgroundColor="White">
+                                        <ViewCell.View>
+                                            <Frame BorderColor="White"
+                                           IsClippedToBounds="true"
+                                           VerticalOptions="CenterAndExpand"
+                                           Padding="0"
+                                           Margin="0"
+                                           HasShadow="False">
+                                                <Grid  Margin="15,5,15,5" RowSpacing="0" VerticalOptions="FillAndExpand">
+                                                    <Image Source="{Binding Icon}" Aspect="Fill" VerticalOptions="CenterAndExpand"/>
+                                                </Grid>
+                                            </Frame>
+                                        </ViewCell.View>
+                                    </custom:CustomViewCell>
+                                    <!--<ViewCell>
+                                    <Grid>
+                                     <Frame HasShadow="False" Padding="0"  Margin="15,5,15,5" HeightRequest="150"  BackgroundColor="Transparent" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                      <Image Source="{Binding Icon}" BackgroundColor="White" Aspect="Fill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                                     </Frame>
+                                    </Grid>
+                                </ViewCell>-->
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+
+
+                    <Grid HorizontalOptions="FillAndExpand" x:Name="grid" IsVisible="true" Margin="0,10,0,0" VerticalOptions="FillAndExpand" RowSpacing="0" ColumnSpacing="0" Padding="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <Image x:Name="cornerstonesImage"  Margin="0,0,0,10" Source="Icon_Cornerstones.png">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="Cornerstones" Tapped="Cornerstones_Tapped"  NumberOfTapsRequired="1">
+
+                                    </TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+                        <Label Text="CORNERSTONES" FontSize="17" Margin="0,10,0,20" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" FontFamily="{StaticResource SemiBold}" TextColor="#8C8C8C"/>
+
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Image  x:Name="BasicBreathingImage"  Margin="0,0,0,10" Source="Icon_BasicBreathing.png">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="BasicBreathing" Tapped="BasicBreathing_Tapped"  NumberOfTapsRequired="1">
+
+                                    </TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+
+                        <Label Text="BASIC BREATHING" FontSize="17" Margin="0,10,0,20" Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" FontFamily="{StaticResource SemiBold}" TextColor="#8C8C8C"/>
+
+                        <Grid Grid.Row="2" Grid.Column="0">
+                            <Image x:Name="EverydayBreathingImage"  Margin="0,0,0,10" Source="Icon_EverydayBreathing.png">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="EverdayBreathing" Tapped="EverdayBreathing_Tapped"   NumberOfTapsRequired="1">
+
+                                    </TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+
+                        <Label Text="EVERYDAY BREATHING" FontSize="17" HorizontalTextAlignment="Center" Margin="0,10,0,20" Grid.Row="3" Grid.Column="0" HorizontalOptions="Center" FontFamily="{StaticResource SemiBold}" TextColor="#8C8C8C"/>
+
+
+                        <Grid Grid.Row="2" Grid.Column="1">
+                            <Image  x:Name="FindYourPathImage"  Margin="0,0,0,10" Source="Icon_FindyourPath.png">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer  x:Name="FInYourPath" Tapped="FInYourPath_Tapped"  NumberOfTapsRequired="1">
+
+                                    </TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+
+                        <Label Text="FIND YOUR PATH" FontSize="17" Margin="0,10,0,20" Grid.Row="3" Grid.Column="1" HorizontalOptions="Center" FontFamily="{StaticResource SemiBold}" TextColor="#8C8C8C"/>
+
+                        <Grid Grid.Row="4" Grid.Column="0" Padding="4,4,4,4">
+                            <Image Source="Icon_News.png" x:Name="News">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer  Tapped="News_Tapped"  NumberOfTapsRequired="1">
+
+                                    </TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+
+                        <Label Text="NEWS" Margin="0,10,0,20" FontSize="17" Grid.Row="5" Grid.Column="0" HorizontalOptions="Center" FontFamily="{StaticResource SemiBold}" TextColor="#8C8C8C"/>
+                        <Grid Grid.Row="4" Grid.Column="1" Padding="4,4,4,4">
+                            <Image Source="MyAccountsIcon.png"   BackgroundColor="Transparent">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Account_Tapped"  NumberOfTapsRequired="1"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+
+                        <Label Text="MY ACCOUNT" FontSize="17" Margin="0,10,0,20" Grid.Row="5" Grid.Column="1" HorizontalOptions="Center" FontFamily="{StaticResource SemiBold}" TextColor="#8C8C8C"/>
+                    </Grid>
+                </StackLayout>
+                <!--<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="Start" 
+                        >
+
+            </StackLayout>
+            <StackLayout Orientation="Vertical"
+                         Margin="0,0,0,50"
+                         VerticalOptions="CenterAndExpand">
+                <StackLayout Orientation="Vertical" >
+                    <StackLayout Orientation="Horizontal" >
+                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+
+                            <Image x:Name="cornerstonesImage" HorizontalOptions="CenterAndExpand" Source="Icon_Cornerstones.png" HeightRequest="100" WidthRequest="100">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="Cornerstones" Tapped="Cornerstones_Tapped"  NumberOfTapsRequired="1">
+
+                                    </TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="CORNERSTONES" HorizontalOptions="CenterAndExpand" FontFamily="{StaticResource SemiBold}" TextColor="DarkGray"/>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                            <Image  x:Name="BasicBreathingImage" HorizontalOptions="CenterAndExpand" Source="Icon_BasicBreathing.png" HeightRequest="100" WidthRequest="100">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="BasicBreathing" Tapped="BasicBreathing_Tapped"  NumberOfTapsRequired="1">
+
+                                    </TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="BASIC BREATHING" HorizontalOptions="Center" FontFamily="{StaticResource SemiBold}" TextColor="DarkGray"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                            <Image x:Name="EverydayBreathingImage" HorizontalOptions="CenterAndExpand" Source="Icon_EverydayBreathing.png" HeightRequest="100" WidthRequest="100">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="EverdayBreathing" Tapped="EverdayBreathing_Tapped"   NumberOfTapsRequired="1">
+
+                                    </TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="EVERYDAY BREATH" HorizontalOptions="Center" FontFamily="{StaticResource SemiBold}" TextColor="DarkGray"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                            <Image  x:Name="FindYourPathImage" Source="Icon_FindyourPath.png" HeightRequest="100" WidthRequest="100">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer  x:Name="FInYourPath" Tapped="FInYourPath_Tapped"  NumberOfTapsRequired="1">
+
+                                    </TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="FIND YOUR PATH" HorizontalOptions="Center" FontFamily="{StaticResource SemiBold}" TextColor="DarkGray"/>
+                        </StackLayout>
+                        
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                            <Image Source="Icon_News.png" HeightRequest="100" WidthRequest="100">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="News" Tapped="News_Tapped"  NumberOfTapsRequired="1">
+
+                                    </TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="NEWS" HorizontalOptions="Center" FontFamily="{StaticResource SemiBold}" TextColor="DarkGray"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                            <Image Source="Icon_MyAccount.png" HeightRequest="100" WidthRequest="100">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="Account" Tapped="Account_Tapped"  NumberOfTapsRequired="1">
+
+                                    </TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="MY ACCOUNT" HorizontalOptions="Center" FontFamily="{StaticResource SemiBold}" TextColor="DarkGray"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+
+            </StackLayout>
+            <StackLayout VerticalOptions="End"
+                         HorizontalOptions="FillAndExpand"
+                         BackgroundColor="#2a2e3a"
+                         >
+                <Button Text="WHAT PATH ARE YOU ON?" 
+                        FontFamily="{StaticResource BoldFont}"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="CenterAndExpand" 
+                        TextColor="White"
+                        HeightRequest="50" 
+                        BackgroundColor="#2a2e3a"></Button>
+            </StackLayout>
+        </StackLayout>-->
+
+            </ContentView>
+            <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type= RelativeToParent,
+                         Property=Width,Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression
+                         Type=RelativeToParent,Property=Height,Factor=1}" IsVisible="True"
+                         BackgroundColor="Transparent" x:Name="cview_Home">
+                <Frame Padding="5" HeightRequest="40" WidthRequest="40"
+                       CornerRadius="10" BackgroundColor="#90d25b" VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand" HasShadow="False">
+                    <ActivityIndicator IsEnabled="true" IsVisible="true"
+                                   IsRunning="true" WidthRequest="50"
+                                   HeightRequest="50" VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand"
+                                   Color="White"  x:Name="activity"/>
+                </Frame>
+
+            </ContentView>
+        </RelativeLayout>
+    </ContentPage.Content>
+
+</ContentPage>

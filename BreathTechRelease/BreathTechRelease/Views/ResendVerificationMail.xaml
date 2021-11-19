@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BreathTechRelease.Views.ResendVerificationMail"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:custom="clr-namespace:BreathTechRelease.CustomControls"
+    NavigationPage.HasBackButton="True"
+    NavigationPage.HasNavigationBar="True"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    BackgroundImageSource="loginVerifyEmail.png"
+             ios:Page.UseSafeArea="true"
+    mc:Ignorable="d">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Label Text="VERIFY EMAIL"
+                   Margin="0,0,30,0"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="16"
+                   FontFamily="{StaticResource BoldFont}"
+                   VerticalOptions="CenterAndExpand" 
+                   TextColor="#c6c6c6"/>
+            <Image Source="" HorizontalOptions="End" HeightRequest="40" WidthRequest="40" Margin="0,5,5,10"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout Margin="20,40,20,0">
+            <StackLayout>
+                
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                        <!--<Label Text="VERIFY EMAIL" FontFamily="{StaticResource NormalFont}"  HorizontalOptions="CenterAndExpand" FontSize="Medium"/>--> 
+                           <Frame   Margin="0,30,0,0"  Style="{StaticResource FrameStyle}">
+                        <custom:RoundedEntry
+                          
+                            x:Name="TbEmail"
+                            Placeholder="   Email"
+                            Text="" Style="{StaticResource EntryStyle}" />
+
+                            </Frame>
+                        <Label
+                            x:Name="ErrorMsg"
+                            HorizontalOptions="Center"
+                            FontFamily="{StaticResource NormalFont}" 
+                            TextColor="Red" />
+                        <Button
+                            x:Name="btnVerify"
+                            FontFamily="{StaticResource BoldFont}" 
+                            Margin="20,20,20,0"
+                            BackgroundColor="#26304e"
+                            Clicked="btnVerify_Clicked"
+                            CornerRadius="25"
+                            HeightRequest="50"
+                            Text="Verify"
+                            TextTransform="None"
+                            TextColor="#FFF" />
+                    </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+    
+  

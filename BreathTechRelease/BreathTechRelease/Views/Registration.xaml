@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BreathTechRelease.Views.Registration"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ia="clr-namespace:IntelliAbb.Xamarin.Controls;assembly=IntelliAbb.Xamarin.Controls"
+    NavigationPage.HasBackButton="False"
+    xmlns:custom="clr-namespace:BreathTechRelease.CustomControls"
+    NavigationPage.HasNavigationBar="False"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+    mc:Ignorable="d"
+    BackgroundImageSource="login.png">
+    <ContentPage.Content>
+        <RelativeLayout>
+            <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type= RelativeToParent,
+                         Property=Width,Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression
+                         Type=RelativeToParent,Property=Height,Factor=1}">
+                <ScrollView>
+                    <StackLayout Margin="10,20,10,20">
+                        <StackLayout>
+
+                            <Frame
+                    BackgroundColor="#FFF"
+                    VerticalOptions="Center"
+                        HasShadow="False">
+
+                                <StackLayout HorizontalOptions="FillAndExpand" Spacing="20" VerticalOptions="Center">
+
+                                    <!--   <Button
+                            x:Name="BtnGoogleLogin"
+                            Margin="20,0,20,20"
+                            BackgroundColor="#F4511E"
+                            Clicked="GoogleLogin_Clicked"
+                            CornerRadius="25"
+                            HeightRequest="50"
+                            ImageSource="googlPlus.png"
+                            Text="LOGIN WITH GOOGLE"
+                            FontFamily="{StaticResource BoldFont}" 
+                            TextColor="#FFF" />
+                        <Label HorizontalOptions="CenterAndExpand" Text="OR" FontFamily="{StaticResource BoldFont}"  />
+                           -->
+                                    <Frame  Style="{StaticResource FrameStyle}" HeightRequest="40">
+                                        <custom:RoundedEntry 
+                            x:Name="TbFName" TabIndex="1"
+                            Placeholder="   First Name"
+                            Text="" Style="{StaticResource EntryStyle}"
+                            />
+                                    </Frame>
+                                    <Frame Style="{StaticResource FrameStyle}" HeightRequest="40">
+                                        <custom:RoundedEntry 
+                            x:Name="TbLName" TabIndex="2"
+                            Placeholder="   Last Name" 
+                            Text="" Style="{StaticResource EntryStyle}" />
+
+                                    </Frame>
+
+
+
+
+                                    <Grid Margin="0,0,0,5" HeightRequest="40">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+
+                                            <ColumnDefinition Width="8*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.Column="0" Source="{Binding CountryFlag}" HorizontalOptions="Start" x:Name="flagImage" VerticalOptions="Center" Aspect="AspectFit">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <!--<Label Grid.Column="1" FontSize="Small" TextColor="Black" HorizontalOptions="Center" MaxLines="1" x:Name="selectedCountry" Text="{Binding SelectedCountry}" VerticalOptions="Center"/>-->
+                                        <Label Grid.Column="1" FontSize="Small" Text="{Binding CountryCode}" TextColor="Black" HorizontalOptions="Center" MaxLines="1" x:Name="selectedCountryCode" VerticalOptions="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                        <Frame  Grid.Column="2" Style="{StaticResource FrameStyle}">
+
+                                            <custom:RoundedEntry 
+                               
+                            x:Name="TbMobile"
+                                Keyboard="Numeric"
+                            MaxLength="12" TabIndex="3"
+                            Text=""
+                            Placeholder="   Mobile Number"
+                            HorizontalOptions="FillAndExpand" Style="{StaticResource EntryStyle}" />
+                                        </Frame>
+                                    </Grid>
+
+
+
+                                    <Frame Style="{StaticResource FrameStyle}" HeightRequest="40">
+
+                                        <custom:RoundedEntry 
+                            x:Name="TbEmail" TabIndex="4"
+                            Placeholder="   Email" TextColor="Black"
+                            Text="" Style="{StaticResource EntryStyle}" />
+                                    </Frame>
+                                    <Frame Style="{StaticResource FrameStyle}" HeightRequest="40">
+                                        <custom:DatePickerCtrl  Margin="20,0,0,0"
+                            Placeholder="  Select Date of birth"  TextColor="Black"
+                          x:Name="dob"  
+                             />
+                                    </Frame>
+                                    <Frame Style="{StaticResource FrameStyle}" HeightRequest="40">
+                                        <custom:PickerCtrl Margin="20,0,0,0"  x:Name="gender" Title="  Select Gender" ItemDisplayBinding="{Binding name}" HorizontalOptions="FillAndExpand"/>
+                                    </Frame>
+
+                                    <!--<Entry
+                            x:Name="location"
+                            Placeholder="Location"
+                            Text="" />-->
+                                    <Frame Style="{StaticResource FrameStyle}" HeightRequest="40">
+
+                                        <custom:RoundedEntry TabIndex="7"
+                            x:Name="TbPassword"
+                            IsPassword="True"
+                            Placeholder="   Password"
+                            MaxLength="12"
+                            Text="" Style="{StaticResource EntryStyle}" />
+                                    </Frame>
+                                    <Label Text="(Note: Password length should be between 8 to 12 characters and contains at least 1 upper case, 1 lower case, 1 number and 1 special character)" Margin="0,-5,0,0" TextColor="Blue" FontAttributes="Italic" FontSize="14"/>
+                                    <Frame Style="{StaticResource FrameStyle}" HeightRequest="40">
+                                        <custom:RoundedEntry  TabIndex="8"
+                            x:Name="TbConfirmPass"
+                            IsPassword="True"
+                            MaxLength="12"
+                            Placeholder="   Confirm Password"
+                            Text=""  Style="{StaticResource EntryStyle}" />
+                                    </Frame>
+                                    <StackLayout HorizontalOptions="CenterAndExpand"  Orientation="Horizontal"
+                                     Margin="0,0,0,0">
+                                        <!--<CheckBox x:Name="CheckBoxAgreeTerms" Color="Black" IsChecked="False"/>-->
+                                        <ia:Checkbox x:Name="CheckBoxAgreeTerms"
+    OutlineColor="Black"
+    FillColor="Black"
+    CheckColor="White"
+    Shape="Circle" 
+     />
+                                        <Label
+                                x:Name="Terms"
+                                Padding="10,0,0,0"
+                                Text="Accept Terms and Conditions"
+                                FontFamily="{StaticResource SemiBold}" 
+                                TextColor="Black">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TermsTapped" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+
+
+                                    </StackLayout>
+
+                                    <Label
+                            x:Name="ErrorMsg"
+                            HorizontalOptions="Center"
+                            FontFamily="{StaticResource BoldFont}" 
+                            TextColor="Red" />
+                                    <Button
+                            x:Name="btnRegistration"
+                            Margin="30,0,30,0"
+                            BackgroundColor="#26304e"
+                            Clicked="btnRegistration_Clicked"
+                            CornerRadius="25"
+                            HeightRequest="50"
+                            Text="Register"
+                            FontFamily="{StaticResource BoldFont}" 
+                                TextTransform="None"
+                            TextColor="#FFF" />
+                                </StackLayout>
+
+                            </Frame>
+
+                        </StackLayout>
+
+
+                        <StackLayout
+                HorizontalOptions="Center"
+                Orientation="Vertical"
+                VerticalOptions="End"
+                Margin="0,0,0,10">
+                            <Label
+                    x:Name="CreateAccount"
+                    Text="Already Have An Account? Sign in"
+                    FontFamily="{StaticResource NormalFont}" 
+                    TextColor="#90d25b">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </ContentView>
+
+            <!--   Popup Content View for Country Pop up     -->
+
+            <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type= RelativeToParent,
+                           Property=Width,Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression
+                           Type=RelativeToParent,Property=Height,Factor=1}" IsVisible="false" x:Name="cview_countryPopup"
+                           BackgroundColor="#70000000">
+                <StackLayout x:Name="countryStack" FlowDirection="LeftToRight" BackgroundColor="Transparent" Orientation="Vertical" Margin="20">
+                    <Frame FlowDirection="MatchParent" CornerRadius="10" Padding="0" HasShadow="true" BackgroundColor="White">
+                        <StackLayout Spacing="0" FlowDirection="MatchParent">
+                            <SearchBar Placeholder="Search Country" Text="{Binding SearchCountry}" HeightRequest="50" MinimumHeightRequest="50" />
+                            <ListView x:Name="CountryListView" SelectedItem="{Binding SelectedCountry}" ItemsSource="{Binding CountryList}" HasUnevenRows="True" CachingStrategy="RecycleElement">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout FlowDirection="MatchParent" Spacing="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="20">
+                                                <Image Source="{Binding countryFlag}" HorizontalOptions="Start" Aspect="AspectFit" VerticalOptions="Center" WidthRequest="50" HeightRequest="30" />
+                                                <Label Text="{Binding countryName}" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" FontSize="Medium" VerticalOptions="Center"/>
+                                                <!--<Label VerticalTextAlignment="Center" HorizontalOptions="Start" FontSize="Medium" VerticalOptions="Center" >
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    -->
+                                                <!--<Span Text="("/>-->
+                                                <!--
+                                                    <Span Text="{Binding countryCode}"/>
+                                                    -->
+                                                <!--<Span Text=")"/>-->
+                                                <!--
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>-->
+                                                <Label Text="{Binding countryPrefix}" VerticalTextAlignment="Center" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="Start"/>
+                                                <!--<Label Text="{Binding countryName}" VerticalTextAlignment="Center" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>-->
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+        </RelativeLayout>
+
+    </ContentPage.Content>
+</ContentPage>

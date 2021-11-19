@@ -1,0 +1,23 @@
+<svg id="Group_1045" data-name="Group 1045" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="80" viewBox="0 0 400 80">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_7" data-name="Rectangle 7" width="20.108" height="19.742" transform="translate(4878.615 899.821)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Google_button" data-name="Google button">
+    <rect id="Rectangle_5" data-name="Rectangle 5" width="400" height="80" rx="40" fill="#fff"/>
+  </g>
+  <text id="Sign_in_with_Google" data-name="Sign in with Google" transform="translate(227.462 50.327)" fill="#8c8c8c" font-size="28" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="-120.47" y="0">Sign in with Google</tspan></text>
+  <g id="Google_Icon" data-name="Google Icon" transform="translate(-4824 -863.5)">
+    <g id="Group_22" data-name="Group 22">
+      <g id="Group_21" data-name="Group 21" clip-path="url(#clip-path)">
+        <g id="Group_20" data-name="Group 20">
+          <path id="Path_12" data-name="Path 12" d="M4898.684,904.156a17.859,17.859,0,0,0-.442-4.273H4878.63v7.757h11.513a10.219,10.219,0,0,1-4.271,6.781l-.04.261,6.2,4.806.429.044c3.946-3.647,6.221-9.011,6.221-15.376" fill="#4285f4"/>
+        </g>
+      </g>
+    </g>
+    <path id="Path_13" data-name="Path 13" d="M4878.63,924.595a19.9,19.9,0,0,0,13.833-5.063l-6.591-5.111a12.362,12.362,0,0,1-7.242,2.091,12.575,12.575,0,0,1-11.884-8.686l-.245.021-6.448,4.994-.084.234a20.872,20.872,0,0,0,18.66,11.52" fill="#34a853"/>
+    <path id="Path_14" data-name="Path 14" d="M4866.746,907.826a12.905,12.905,0,0,1-.7-4.134,13.551,13.551,0,0,1,.673-4.134l-.011-.277-6.529-5.074-.214.1a20.874,20.874,0,0,0,0,18.767l6.777-5.249" fill="#fbbc05"/>
+    <path id="Path_15" data-name="Path 15" d="M4878.63,890.872a11.572,11.572,0,0,1,8.077,3.112l5.9-5.76a20.061,20.061,0,0,0-13.972-5.435,20.868,20.868,0,0,0-18.66,11.52l6.753,5.249a12.628,12.628,0,0,1,11.907-8.686" fill="#eb4335"/>
+  </g>
+</svg>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             x:Class="BreathTechRelease.Views.Intro"
+             xmlns:inthehand="clr-namespace:InTheHand.Forms;assembly=InTheHand.Forms"   
+             BackgroundColor="#FFF">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="INTRODUCTION"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   Margin="0,4,40,0"
+                   FontSize="16" 
+                   FontFamily="{StaticResource BoldFont}"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   TextColor="#C6C6C6"/>
+            <!--<Image Source="" HorizontalOptions="End" HeightRequest="40" WidthRequest="40" Margin="0,5,5,10"/>-->
+        </StackLayout>
+
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <RelativeLayout>
+           <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type= RelativeToParent,
+                       Property=Width,Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression
+                       Type=RelativeToParent,Property=Height,Factor=1}">
+                 <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            
+                <inthehand:MediaElement  Grid.Row="0"  x:Name="Vid"
+                     Source="" 
+                               IsLooping="True"
+                            MediaOpened="OnMediaOpened"
+                             MediaEnded="OnMediaEnded"      
+                             KeepScreenOn="True"
+                               SeekCompleted="OnSeekCompleted"
+                     AutoPlay="True"
+                     ShowsPlaybackControls="True"
+                     VerticalOptions="FillAndExpand"/>
+                <Button Text="Get Started"
+                        x:Name="skipButton"
+                        FontFamily="{StaticResource BoldFont}" 
+                            TextColor="White"
+                            BackgroundColor="#2a2e3a"
+                            CornerRadius="25"
+                        Grid.Row="1"
+                            Margin="20,0,20,10"
+                            Clicked="Skip_Clicked"
+                     />
+            
+
+        </Grid>
+            </ContentView>
+            <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type= RelativeToParent,
+                         Property=Width,Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression
+                         Type=RelativeToParent,Property=Height,Factor=1}" IsVisible="True" Margin="0,0,0,50"
+                         BackgroundColor="Transparent" x:Name="cview_Intro">
+                <ActivityIndicator IsEnabled="true" IsVisible="true"
+                                   IsRunning="true" WidthRequest="50"
+                                   HeightRequest="50" VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand"
+                                   Color="#90d25b"  x:Name="activity"/>
+
+            </ContentView>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

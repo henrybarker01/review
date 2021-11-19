@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:custom="clr-namespace:BreathTechRelease.CustomControls"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             ios:Page.UseSafeArea="true"
+             x:Class="BreathTechRelease.Views.Profile"
+             BackgroundColor="White"
+             >
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="MY PROFILE"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   FontFamily="{StaticResource BoldFont}"
+                   VerticalOptions="CenterAndExpand" 
+                   TextColor="#8C8C8C">
+            <Label.Margin>
+               <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="55, 0, 0, 0" />
+                        <On Platform="Android" Value="55, 0, 0, 0" />
+                    </OnPlatform>
+            </Label.Margin>
+            </Label>
+            <Image x:Name="searchImage" HorizontalOptions="EndAndExpand" Source="search.png" WidthRequest="25" HeightRequest="25">
+            <Image.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0, 0, 5, 0" />
+                        <On Platform="Android" Value="0, 0, 10, 0" />
+                    </OnPlatform>
+                </Image.Margin>
+            </Image>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+
+        <StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand">
+
+            <ScrollView Orientation="Vertical"
+                         Margin="10,10,10,0"
+                         VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                <StackLayout>
+                <!--<ffimageloading:CachedImage Source="BeYourbest_YesBreath.png"
+                                             HeightRequest="200"
+                       HorizontalOptions="FillAndExpand"
+                       DownsampleToViewSize="True"
+                       FadeAnimationForCachedImages="False"
+                       BackgroundColor="White"
+                       x:Name="profilePic"
+                                             Aspect="Fill"/>-->
+                <Frame   Margin="5,5,5,5"  Style="{StaticResource FrameStyle}">
+
+                    <custom:RoundedEntry
+                    IsEnabled="False"
+                            x:Name="FName"
+                            Placeholder="   First Name"
+                            PlaceholderColor="#26304E"
+                    HeightRequest="50"
+                            Text="" Style="{StaticResource EntryStyle}" />
+                </Frame>
+                <Frame    Margin="5,5,5,5"  Style="{StaticResource FrameStyle}">
+
+                    <custom:RoundedEntry
+                            IsEnabled="False"
+                            x:Name="LName"
+                           
+                            HeightRequest="50"
+                            Placeholder="   Last Name"
+                            PlaceholderColor="#26304E"
+                            Text="" Style="{StaticResource EntryStyle}" />
+                </Frame>
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.8*"/>
+
+                        <ColumnDefinition Width="8*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="{Binding CountryFlag}" HorizontalOptions="Start" x:Name="flagImage" VerticalOptions="Center" Aspect="AspectFit">
+                        <!--<Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                                </Image.GestureRecognizers>-->
+                    </Image>
+                    <!--<Label Grid.Column="1" FontSize="Small" TextColor="Black" HorizontalOptions="Center" MaxLines="1" x:Name="selectedCountry" Text="{Binding SelectedCountry}" VerticalOptions="Center"/>-->
+                    <Label Grid.Column="1" FontSize="Small" Text="{Binding CountryCode}" TextColor="Black" HorizontalOptions="Center" MaxLines="1" x:Name="selectedCountryCode" VerticalOptions="Center">
+                        <!--<Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                                </Label.GestureRecognizers>-->
+                    </Label>
+                    <Frame     Grid.Column="2"    Style="{StaticResource FrameStyle}">
+
+                        <custom:RoundedEntry
+                    IsEnabled="False"
+                             
+                            x:Name="Mobile"
+                    HeightRequest="50"
+                                Keyboard="Numeric"
+                            MaxLength="12"
+                            Text=""
+                            Placeholder="   Mobile Number"
+                            PlaceholderColor="#26304E"
+                            HorizontalOptions="FillAndExpand" Style="{StaticResource EntryStyle}"/>
+                    </Frame>
+                </Grid>
+                <Frame Margin="5,5,5,5" Style="{StaticResource FrameStyle}">
+                    <custom:RoundedEntry
+                            x:Name="Email"
+                    HeightRequest="50"
+                    IsEnabled="False"
+                            Placeholder="   Email"
+                            PlaceholderColor="#26304E"
+                            Text="" Style="{StaticResource EntryStyle}" />
+                </Frame>
+                <!--<Entry
+                            x:Name="TbEmail"
+                    IsEnabled="False"
+                            Placeholder="Email"
+                            Text="" />-->
+                <!--<custom:DatePickerCtrl
+                            x:Name="dob"
+                            
+                             />-->
+                <Frame Margin="5,5,5,5"  Style="{StaticResource FrameStyle}">
+                    <custom:RoundedEntry Placeholder="   Date of Birth"  x:Name="dobText" IsEnabled="False"  HeightRequest="50" Style="{StaticResource EntryStyle}" />
+                </Frame>
+                <Frame Margin="5,5,5,5"  Style="{StaticResource FrameStyle}">
+
+                    <custom:RoundedEntry Placeholder="  Gender" PlaceholderColor="#26304E"
+                    x:Name="genderText" IsEnabled="False"  HeightRequest="50" Style="{StaticResource EntryStyle}" />
+                </Frame>
+                <!--<Entry
+                            x:Name="location"
+                            Placeholder="Location"
+                            Text="" />-->
+
+                <!--<Label Text="Email" 
+                       TextColor="Gray"
+                       Margin="0,0,0,30"
+                       FontSize="Title" 
+                       HorizontalOptions="Center">
+
+                </Label >-->
+
+                <!--<Label Text="Account " FontFamily="{StaticResource BoldFont}" HorizontalOptions="Center" VerticalOptions="Center"></Label>-->
+
+
+                <!--<TableView Intent="Settings" >
+                    <TableRoot TextColor="DarkGray">
+                        <TableSection Title="Profile Information" >
+                            <TextCell x:Name="FName" Text="First Name"/>
+                            <TextCell x:Name="LName" Text="Last Name"/>
+                            <TextCell x:Name="Mobile" Text ="Phone"/>
+                            <TextCell x:Name="Email" Text="Email"/>
+                            
+                            <TextCell Text="Password" Detail="*******" />
+
+                            <ViewCell>
+                                <Label Text="CHANGE PASSWORD" 
+                                       TextColor="DarkGray"
+                                       Margin=" 20,0,20,0"
+                                       FontSize="14"
+                                       FontFamily="{StaticResource BoldFont}"
+                                       HorizontalOptions="Start">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ChangePassword_Tapped">
+
+                                        </TapGestureRecognizer>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </ViewCell>
+
+                            <ViewCell>
+                                <Button Text="Unsubscribe" BackgroundColor="Red" FontFamily="{StaticResource BoldFont}" Margin="20,0,20,0" CornerRadius="25"/>
+                            </ViewCell>
+                        
+                        </TableSection>
+                    </TableRoot>
+                </TableView>-->
+
+                <Label x:Name="ErrorMsg" HorizontalOptions="Center" TextColor="Red" FontFamily="{StaticResource BoldFont}" />
+                <Button Text="Update profile" 
+                    TextTransform="Uppercase"
+                            TextColor="White"
+                            BackgroundColor="#2A2E3A"
+                            CornerRadius="25" 
+                            Margin="10,100,10,100"
+                    FontAttributes="Bold"
+                            Clicked="Button_Clicked"
+                    HeightRequest="50"
+                     />
+                <!--<Label Text="REQUIRE PASSWORD TO OPEN" 
+                       TextColor="Gray"
+                       Margin="0,0,0,30"
+                       FontSize="Title"
+                       HorizontalOptions="Center">
+
+                </Label>-->
+              </StackLayout>
+            </ScrollView>
+
+            <StackLayout VerticalOptions="EndAndExpand"
+                         BackgroundColor="#26304e">
+
+                <Button Text="Log out" 
+                        TextTransform="Uppercase"
+                            TextColor="White"
+                            BackgroundColor="#26304e"
+                            CornerRadius="25" 
+                            Margin="20,0,20,0"
+                            Clicked="btnLogout_Clicked"
+                        FontAttributes="Bold"
+                     />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

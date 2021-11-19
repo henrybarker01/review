@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:custom="clr-namespace:BreathTechRelease.CustomControls" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" x:Class="BreathTechRelease.Views.UpdateProfileView">
+    <ContentPage.Content>
+        <RelativeLayout>
+        <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type= RelativeToParent,
+          Property=Width,Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression
+          Type=RelativeToParent,Property=Height,Factor=1}">
+       <StackLayout>
+        <ScrollView VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand">
+
+            <StackLayout Orientation="Vertical"
+                         Margin="10,10,10,0"
+                         VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                 <!--<ffimageloading:CachedImage Source="BeYourbest_YesBreath.png"
+                                             HeightRequest="200"
+                       HorizontalOptions="FillAndExpand"
+                       DownsampleToViewSize="True"
+                       FadeAnimationForCachedImages="False"
+                       BackgroundColor="White"
+                       x:Name="profilePic"
+                                             Aspect="Fill">
+                     <ffimageloading:CachedImage.GestureRecognizers>
+                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped"/>
+                     </ffimageloading:CachedImage.GestureRecognizers>
+                 </ffimageloading:CachedImage>-->
+                    <Frame    Margin="5,5,5,5"  Style="{StaticResource FrameStyle}">
+                        <custom:RoundedEntry
+                            x:Name="FName"
+                            Margin="5,5,5,5"
+                            Placeholder="First Name"
+                            HeightRequest="50"
+                            Text="" />
+                    </Frame>
+
+
+
+                    <Frame    Margin="5,5,5,5"  Style="{StaticResource FrameStyle}">
+                        <custom:RoundedEntry
+                            x:Name="LName"
+                            Margin="5,5,5,5"
+                            HeightRequest="50"
+                            Placeholder="Last Name"
+                            Text="" />
+                    </Frame>
+
+                    <Frame    Margin="5,5,5,5"  Style="{StaticResource FrameStyle}">
+                        <Grid Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+
+                                <ColumnDefinition Width="8*"/>
+                            </Grid.ColumnDefinitions>
+
+                        
+                            
+                            <Image Grid.Column="0" Source="{Binding CountryFlag}" HorizontalOptions="Start" x:Name="flagImage" VerticalOptions="Center" Aspect="AspectFit">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <!--<Label Grid.Column="1" FontSize="Small" TextColor="Black" HorizontalOptions="Center" MaxLines="1" x:Name="selectedCountry" Text="{Binding SelectedCountry}" VerticalOptions="Center"/>-->
+                            <Label Grid.Column="1" FontSize="Small" Text="{Binding CountryCode}" TextColor="Black" HorizontalOptions="Center" MaxLines="1" x:Name="selectedCountryCode" VerticalOptions="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                    
+                    
+                            <custom:RoundedEntry  Grid.Column="2"
+                            x:Name="Mobile"
+                            HeightRequest="50"
+                            Keyboard="Numeric"
+                            MaxLength="12"
+                            Text=""
+                            Placeholder="Mobile Number" 
+                            HorizontalOptions="FillAndExpand"/>
+                        
+                     
+
+
+                    </Grid>
+                    </Frame>
+
+
+
+                    <Frame    Margin="5,5,5,5"  Style="{StaticResource FrameStyle}">
+                        <custom:RoundedEntry
+                            x:Name="Email"
+                            Margin="5,5,5,5"
+                            HeightRequest="50"
+                            IsEnabled="False"
+                            Placeholder="Email"
+                            Text="" />
+                    </Frame>
+                    <!--<Entry
+                            x:Name="TbEmail"
+                    IsEnabled="False"
+                            Placeholder="Email"
+                            Text="" />-->
+                        <custom:DatePickerCtrl
+                            x:Name="dob"
+                            Margin="5"
+                             />
+                 
+                        <custom:PickerCtrl x:Name="gender" Title="Select Gender" ItemDisplayBinding="{Binding name}" HorizontalOptions="FillAndExpand"
+                                Margin="5">
+
+</custom:PickerCtrl>
+                <!--<Label x:Name="genderText" IsVisible="false"/>-->
+                        <!--<Entry
+                            x:Name="location"
+                            Placeholder="Location"
+                            Text="" />-->
+
+                <!--<Label Text="Email" 
+                       TextColor="Gray"
+                       Margin="0,0,0,30"
+                       FontSize="Title" 
+                       HorizontalOptions="Center">
+
+                </Label >-->
+
+                <!--<Label Text="Account " FontFamily="{StaticResource BoldFont}" HorizontalOptions="Center" VerticalOptions="Center"></Label>-->
+
+
+                <!--<TableView Intent="Settings" >
+                    <TableRoot TextColor="DarkGray">
+                        <TableSection Title="Profile Information" >
+                            <TextCell x:Name="FName" Text="First Name"/>
+                            <TextCell x:Name="LName" Text="Last Name"/>
+                            <TextCell x:Name="Mobile" Text ="Phone"/>
+                            <TextCell x:Name="Email" Text="Email"/>
+                            
+                            <TextCell Text="Password" Detail="*******" />
+
+                            <ViewCell>
+                                <Label Text="CHANGE PASSWORD" 
+                                       TextColor="DarkGray"
+                                       Margin=" 20,0,20,0"
+                                       FontSize="14"
+                                       FontFamily="{StaticResource BoldFont}"
+                                       HorizontalOptions="Start">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ChangePassword_Tapped">
+
+                                        </TapGestureRecognizer>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </ViewCell>
+
+                            <ViewCell>
+                                <Button Text="Unsubscribe" BackgroundColor="Red" FontFamily="{StaticResource BoldFont}" Margin="20,0,20,0" CornerRadius="25"/>
+                            </ViewCell>
+                        
+                        </TableSection>
+                    </TableRoot>
+                </TableView>-->
+
+            <Label x:Name="ErrorMsg" HorizontalOptions="Center" TextColor="Red" FontFamily="{StaticResource BoldFont}" />
+                    <Button Text="Update Profile" 
+                    TextTransform="Uppercase"
+                            TextColor="White"
+                            BackgroundColor="#26304e"
+                            CornerRadius="25" 
+                            Margin="10,60,10,60"
+                            Clicked="Button_Clicked_1"
+                    FontFamily="{StaticResource BoldFont}" 
+                     />
+                    <!--<Label Text="REQUIRE PASSWORD TO OPEN" 
+                       TextColor="Gray"
+                       Margin="0,0,0,30"
+                       FontSize="Title"
+                       HorizontalOptions="Center">
+
+                </Label>-->
+            </StackLayout>
+        </ScrollView>
+            </StackLayout>
+            </ContentView>
+
+                                  <!--   Popup Content View for Country Pop up     -->
+
+              <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type= RelativeToParent,
+                           Property=Width,Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression
+                           Type=RelativeToParent,Property=Height,Factor=1}" IsVisible="false" x:Name="cview_countryPopup"
+                           BackgroundColor="#70000000">
+           <StackLayout x:Name="countryStack" FlowDirection="LeftToRight" BackgroundColor="Transparent" Orientation="Vertical" Margin="20">
+            <Frame FlowDirection="MatchParent" CornerRadius="10" Padding="0" HasShadow="true" BackgroundColor="White">
+                <StackLayout Spacing="0" FlowDirection="MatchParent">
+                    <SearchBar Placeholder="Search Country" Text="{Binding SearchCountry}" HeightRequest="50" MinimumHeightRequest="50" />
+                    <ListView x:Name="CountryListView" SelectedItem="{Binding SelectedCountry}" ItemsSource="{Binding CountryListPop}" HasUnevenRows="True" CachingStrategy="RecycleElement">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout FlowDirection="MatchParent" Spacing="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="20">
+                                        <Image Source="{Binding countryFlag}" HorizontalOptions="Start" Aspect="AspectFit" VerticalOptions="Center" WidthRequest="50" HeightRequest="30" />
+                                        <Label Text="{Binding countryName}" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" FontSize="Medium" VerticalOptions="Center"/>
+                                        <!--<Label VerticalTextAlignment="Center" HorizontalOptions="Start" FontSize="Medium" VerticalOptions="Center" >
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    -->
+                                        <!--<Span Text="("/>-->
+                                        <!--
+                                                    <Span Text="{Binding countryCode}"/>
+                                                    -->
+                                        <!--<Span Text=")"/>-->
+                                        <!--
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>-->
+                                        <Label Text="{Binding countryPrefix}" VerticalTextAlignment="Center" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="Start"/>
+                                        <!--<Label Text="{Binding countryName}" VerticalTextAlignment="Center" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>-->
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+            </ContentView>
+        </RelativeLayout>
+       
+    </ContentPage.Content>
+</ContentPage>

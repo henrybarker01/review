@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             x:Class="BreathTechRelease.Views.PrivacyPolicy">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Label Text="Privacy Policy"
+                  Margin="0,0,30,0"
+                   FontFamily="{StaticResource BoldFont}" 
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="16"
+                   VerticalOptions="CenterAndExpand" 
+                   TextColor="Gray"/>
+            <Image Source="" HorizontalOptions="End" HeightRequest="40" WidthRequest="40" Margin="0,5,5,10"/>
+        </StackLayout>
+
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical">
+            <StackLayout VerticalOptions="FillAndExpand" >
+                <WebView Source="http://incapdev.thedream.global/BTWEB/PrivacyPolicy.aspx" x:Name="mnWebView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  />
+            </StackLayout>
+
+            <StackLayout VerticalOptions="End"
+                         BackgroundColor="#2a2e3a">
+
+                <Button Text="Continue" 
+                        FontFamily="{StaticResource BoldFont}" 
+                            TextColor="White"
+                            BackgroundColor="#2a2e3a"
+                            CornerRadius="25" 
+                            Margin="20,0,20,0"
+                            Clicked="Continue_Clicked"
+                     />
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

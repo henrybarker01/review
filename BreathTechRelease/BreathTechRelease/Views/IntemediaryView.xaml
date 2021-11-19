@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:Custom="clr-namespace:BreathTechRelease.CustomControls"
+             ios:Page.UseSafeArea="true"
+             x:Class="BreathTechRelease.Views.IntemediaryView">
+    <NavigationPage.TitleView>
+        <!--<StackLayout Orientation="Horizontal" Spacing="0" 
+                     HorizontalOptions="CenterAndExpand">
+            <Label x:Name="Heading"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   Margin="0,0,0,0"
+                   FontSize="16"
+                   FontFamily="{StaticResource BoldFont}"  
+                   TextColor="Black"
+                   HorizontalTextAlignment="Center"/>
+            <Image Source="" HorizontalOptions="End" HeightRequest="40" WidthRequest="40" Margin="0,5,5,10"/>
+        </StackLayout>-->
+        <StackLayout Orientation="Horizontal"  Spacing="0"
+                    >
+            <Label x:Name="Heading"
+                   Margin="0,0,0,0"
+                   Text=""
+                   FontAttributes="Bold"
+                   FontSize="18"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   FontFamily="{StaticResource BoldFont}" 
+                   TextColor="#696969"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"/>
+
+            <Image x:Name="searchImage"
+                   Source="search.png"
+                   WidthRequest="30" HeightRequest="30"
+                   HorizontalOptions="End"
+                   >
+                <Image.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0, 0, 5, 0" />
+                        <On Platform="Android" Value="0, 0, 10, 0"/>
+                    </OnPlatform>
+                </Image.Margin>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Search_Pressed"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <SearchBar x:Name="searchBar"
+                           IsVisible="False"
+                   HorizontalOptions="Center"
+                   FontFamily="{StaticResource BoldFont}" 
+                   VerticalOptions="CenterAndExpand"
+                   Placeholder="Search..."
+                   CancelButtonColor="#26304e"
+                   PlaceholderColor="#C6C6C6"
+                   HorizontalTextAlignment="Start"
+                   TextChanged="OnTextChanged"
+                   Grid.Row="0"/>
+
+            <ScrollView  HorizontalOptions="StartAndExpand"
+                     Orientation="Vertical" Grid.Row="1">
+
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                    <Grid   VerticalOptions="FillAndExpand" Margin="10,10,10,10">
+                        <Image HeightRequest="{OnIdiom Phone=200, Tablet=300}" x:Name="Icon" Source="" Aspect="Fill" VerticalOptions="Center"/>
+                    </Grid>
+                    <Label Margin="10,5,5,10"
+                           x:Name="IntroText"
+                           TextColor="#26304E"
+                           VerticalOptions="FillAndExpand"
+                           HorizontalOptions="FillAndExpand"
+                           FontFamily="{StaticResource NormalFont}"
+                           Style="{StaticResource RegularLabelStyle}"
+                           Text="">
+                    </Label>
+
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout Grid.Row="2" HorizontalOptions="FillAndExpand" 
+                                 HeightRequest="50"
+                          WidthRequest="400">
+                <!--<Label x:Name="ReadMore"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand"
+                               Text="READ MORE"
+                               FontFamily="{StaticResource BoldFont}" 
+                               FontAttributes="Bold"
+                               TextColor="#FFF">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ReadMore_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>-->
+                <Button Text="READ MORE" BackgroundColor="#26304e" WidthRequest="400" Clicked="ReadMore_Tapped" Margin="100,0,100,0" CornerRadius="25" TextColor="#FFFFFF"
+                        FontAttributes="Bold"/>
+            </StackLayout>
+
+            <Grid Grid.Row="3"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="End"
+                                 Margin="10,10,10,10">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--<Image Source="Icon_Listen.png"
+                               Grid.Column="0"
+                               HorizontalOptions="Center"
+                               WidthRequest="80"
+                               Margin="10,0,0,0"
+                               HeightRequest="80">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Audio_Tapped" NumberOfTapsRequired="1" x:Name="URL_Audio">
+
+                                </TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>-->
+                <Button Text="LISTEN" TextColor="#FFFFFF" BackgroundColor="#80d25b" WidthRequest="266" Margin="10,0,20,0" Grid.Column="0" HorizontalOptions="CenterAndExpand" CornerRadius="25" Clicked="Audio_Tapped"
+                        FontAttributes="Bold"/>
+
+                <!--<Image Source="Icon_Watch.png"
+                               Grid.Column="1"
+                               WidthRequest="80"
+                               Margin="0,0,10,0"
+                               HeightRequest="80"
+                               HorizontalOptions="Center">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Video_Tapped" NumberOfTapsRequired="1" x:Name="URL_Video">
+
+                                </TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>-->
+
+                <Button Text="WATCH" BackgroundColor="#ff5656" WidthRequest="266" TextColor="#FFFFFF" Grid.Column="1" Margin="20,0,10,0" HorizontalOptions="CenterAndExpand" CornerRadius="25" Clicked="Video_Tapped"
+                        FontAttributes="Bold"/>
+            </Grid>
+
+            <StackLayout Grid.Row="4" VerticalOptions="End"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="#26304e"
+                        >
+                <StackLayout VerticalOptions="Center">
+                    <Label x:Name="txtHeadinding" Text="CLOSE"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand" 
+                    TextColor="White"
+                       Margin="0,10,0,10"
+                    FontFamily="{StaticResource BoldFont}"
+                    FontSize="18"
+                    BackgroundColor="#26304e">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Close_Clicked">
+
+                            </TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Close_Clicked"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

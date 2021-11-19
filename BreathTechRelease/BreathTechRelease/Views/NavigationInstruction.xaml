@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:controls="clr-namespace:BreathTechRelease.Views" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BreathTechRelease.Views.NavigationInstruction">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label x:Name="Heading"
+                   Text=""
+                   FontFamily="{StaticResource BoldFont}" 
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="16"
+                   VerticalOptions="CenterAndExpand" 
+                   TextColor="DarkGray"/>
+            <Image Source="" HorizontalOptions="End" HeightRequest="40" WidthRequest="40" Margin="0,5,5,10"/>
+        </StackLayout>
+
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        
+        <StackLayout>
+             <controls:CustomWebView  Source = "" x:Name="URL_Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

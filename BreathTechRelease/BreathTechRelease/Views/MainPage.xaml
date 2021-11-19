@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            mc:Ignorable="d"
+                  xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+            xmlns:views="clr-namespace:BreathTechRelease.Views"
+            x:Class="BreathTechRelease.Views.MainPage"
+            xmlns:local="clr-namspace:MSCommunity_Xamarin"
+            NavigationPage.HasNavigationBar="False">
+
+    <MasterDetailPage.Master>
+        <ContentPage ios:Page.UseSafeArea="True"  Title="Menu"  IconImageSource="Hamburgericon.png" BackgroundColor="#90d25b" >
+           
+            <ContentPage.Content>
+                <Grid BackgroundColor="#80d25b">
+                     <StackLayout Orientation="Vertical"
+                                 VerticalOptions="EndAndExpand">
+                    <Image Source="Graphic_Atom.png"
+                           VerticalOptions="Start" 
+                           HeightRequest="100"/>
+                    <Label Text="{Binding Footer}" Margin="0,0,10,0"
+                           HorizontalOptions="End"/>
+                        </StackLayout>
+                <StackLayout Orientation="Vertical"  >
+                <StackLayout.Children>
+                    <Label Text="{Binding Header}" TextColor="#26304E" FontSize="17" FontFamily="{StaticResource SemiBold}" />
+                    <Image Source="{Binding Image}" IsOpaque="True" />
+
+
+                    <ListView x:Name="NavigationDrawerList"
+                              RowHeight="55"
+                              SeparatorVisibility="None"
+                              BackgroundColor="Transparent"
+                              ItemSelected="OnMenuItemSelected"
+                              >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout VerticalOptions="FillAndExpand"
+                                                 Orientation="Horizontal"
+                                                 Padding="20,10,0,10"
+                                                 Spacing="20">
+
+                                        <Image Source="{Binding Icon}"
+                                               WidthRequest="30"
+                                               HeightRequest="30"
+                                               VerticalOptions="Start"/>
+
+                                        <Label Text="{Binding Title}"
+                                               FontSize="Small"
+                                               FontFamily="{StaticResource BoldFont}" 
+                                               VerticalOptions="End"
+                                               TextColor="#26304E"
+                                               Padding="0,0,0,10"/>
+                                        
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        
+                    </ListView>
+                   
+                </StackLayout.Children>
+            </StackLayout>
+                    
+                    </Grid>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage  >
+          
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+    
+</MasterDetailPage>

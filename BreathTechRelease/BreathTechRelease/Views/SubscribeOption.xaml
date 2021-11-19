@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BreathTechRelease.Views.SubscribeOption"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True"
+             BackgroundColor="white"
+             >
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" Spacing="0">
+            <Label x:Name="SUBSCRIBE"
+                   Text="SUBSCRIBE"
+                   FontFamily="{StaticResource BoldFont}" 
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="18"
+                   VerticalOptions="CenterAndExpand" 
+                   TextColor="#696969">
+                <Label.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="55, 0, 0, 0" />
+                        <On Platform="Android" Value="55, 0, 0, 0" />
+                    </OnPlatform>
+                </Label.Margin>
+            </Label>
+            <Image x:Name="searchImage" HorizontalOptions="EndAndExpand" Source="search.png" WidthRequest="25" HeightRequest="25">
+                <Image.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0, 0, 5, 0" />
+                        <On Platform="Android" Value="0, 0, 10, 0" />
+                    </OnPlatform>
+                </Image.Margin>
+            </Image>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="Subscription.png"
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand"
+                  Aspect="AspectFill" Opacity="0.3">
+
+            </Image>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand">
+                    <Frame HasShadow="False"
+                   BackgroundColor="Transparent"
+                   Margin="10,100,10,100" 
+                   VerticalOptions="Center"
+                   MinimumHeightRequest="346">
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label x:Name="OptionLength" Text=""  TextColor="#26304e" HorizontalOptions="CenterAndExpand" FontFamily="{StaticResource BoldFont}"/>
+                            <Label  HorizontalTextAlignment="Center"  HorizontalOptions="CenterAndExpand" FontSize="Small" FontFamily="{StaticResource NormalFont}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="In this subscription we provide full access of the " TextColor="#26304e"/>
+                                        <Span Text="Cornerstones, Basic Breathing, Everyday Breath and " TextColor="#26304e"/>
+                                        <Span  x:Name ="OptionText" Text="" TextColor="#26304e"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <!--<Label Text="In this subscription we provide full access of the" TextColor="#26304e"  HorizontalOptions="CenterAndExpand" FontSize="Small" FontFamily="{StaticResource NormalFont}"/>
+                        <Label Text="Cornerstones, Basic Breathing, Everyday Breath and" TextColor="#26304e"  HorizontalOptions="CenterAndExpand" FontSize="Small" FontFamily="{StaticResource NormalFont}"/>
+                        <Label  x:Name ="OptionText" Text="" HorizontalOptions="CenterAndExpand" TextColor="#26304e" FontSize="Small"  FontFamily="{StaticResource NormalFont}"/>-->
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="CenterAndExpand" Orientation="Vertical"  Margin="20,0,20,0">
+                    <!--<Button Text="Start with a 7 day free trial" TextColor="White"  BackgroundColor="#80d25b" HeightRequest="35" CornerRadius="10" Margin="0,10,0,5"/>-->
+                    <Button x:Name="subscribeText" TextTransform="None" Text="" TextColor="White" FontFamily="{StaticResource SemiBold}" BackgroundColor="#80d25b" HeightRequest="45" CornerRadius="10" Margin="0,5,0,5" Command="{Binding BuySubscriptionCommand,Mode=TwoWay}" />
+                    <!--<Button Text="Subscribe for R19.99/year" TextColor="White"   BackgroundColor="#80d25b" HeightRequest="35" CornerRadius="10" Margin="0,5,0,40" Clicked="yearly_Clicked"/>-->
+                    <!--<Button Text="Already subscribed? Sign in." BackgroundColor="White" Opacity="0.8" HeightRequest="35" TextColor="#80d25b" BorderWidth="2" BorderColor="#90d25b" CornerRadius="10" Margin="0,5,0,5"/>-->
+
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical"
+                         VerticalOptions="EndAndExpand"
+                         HorizontalOptions="FillAndExpand" 
+                         Margin="20,0,20,20">
+                    <StackLayout VerticalOptions="EndAndExpand" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="" HorizontalTextAlignment="Center" >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Terms of Service" FontFamily="{StaticResource SemiBold}" TextColor="#80D25B" >
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                                 Tapped="Terms_of_Service"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                    <Span Text=" and " FontFamily="{StaticResource SemiBold}" TextColor="#FDFDFD"/>
+                                    <Span Text="Privacy Policy" FontFamily="{StaticResource SemiBold}" TextColor="#80D25B">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                                 Tapped="Privacy_Policy"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <!--<Label Text="Terms of Service" FontFamily="{StaticResource SemiBold}" TextColor="#80D25B" Margin="0,0,5,0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Terms_of_Service"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="and" FontFamily="{StaticResource SemiBold}" TextColor="#FDFDFD" Margin="0,0,5,0"/>
+                    <Label Text="Privacy Policy" FontFamily="{StaticResource SemiBold}" TextColor="#80D25B">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Privacy_Policy"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>-->
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

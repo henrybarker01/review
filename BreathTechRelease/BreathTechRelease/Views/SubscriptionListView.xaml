@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="BreathTechRelease.Views.SubscriptionListView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    
+    xmlns:custom="clr-namespace:BreathTechRelease.CustomControls;assembly=BreathTechRelease">
+    <NavigationPage.TitleView>
+        <StackLayout BackgroundColor="Transparent">
+            
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" Source="WhitePages_6.png" Aspect="AspectFill"/>
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
+            <Label
+                x:Name="NoDataLabel"
+                FontSize="Small"
+                Margin="0,0,30,0"
+                FontFamily="{StaticResource NormalFont}" 
+                HorizontalOptions="Center"
+                IsVisible="{Binding labelIsVisible}"
+                Text="No data available"
+                TextColor="Black"
+                VerticalOptions="Center" />
+            <ListView
+                x:Name="SubscriptionList"
+                HasUnevenRows="True"
+                BackgroundColor="Transparent"
+                IsVisible="{Binding listIsVisible}"
+                ItemsSource="{Binding SubscriptionList}"
+                SeparatorVisibility="None">
+                <ListView.Header>
+                    <StackLayout Orientation="Vertical" >
+                    <Frame
+                                Margin="10,10,10,10"
+                        HasShadow="False"
+                        CornerRadius="25"
+                                BorderColor="Gray"
+                                HeightRequest="180"
+                        BackgroundColor="Transparent"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                WidthRequest="300">
+
+                                <StackLayout Padding="10">
+                                    <Label
+                                        FontSize="30"
+                                        HorizontalOptions="Center"
+                                        FontFamily="{StaticResource NormalFont}" 
+                                        Text="{Binding CurrentSubscriptionText}"
+                                        TextColor="Black"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalOptions="Center" />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="25"
+                                        HorizontalOptions="Center"
+                                        HorizontalTextAlignment="Center"
+                                        FontFamily="{StaticResource NormalFont}" 
+                                        Text="{Binding SubscriptionExpiryDate}"
+                                        TextColor="#81D25A"
+                                        VerticalOptions="Center" />
+                                    <StackLayout x:Name="CancelSubscriptonLayout"
+                             HorizontalOptions="Center">
+
+                    <Button x:Name="CancelSubscriptionButton" 
+                            CornerRadius="5"
+                            Text="Cancel Subscription"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            WidthRequest="250"
+                            FontSize="Medium"
+                            Clicked="CancelSubscriptionButton_Clicked"
+                            BackgroundColor="Red"
+                            Margin="0,10,0,10"/>
+
+            </StackLayout>
+                                  
+                                </StackLayout>
+                            </Frame>
+                    <!--<BoxView HeightRequest="2" BackgroundColor="Gray" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></BoxView>-->
+                        </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <custom:CustomViewCell SelectedItemBackgroundColor="Transparent">
+                           <ViewCell.View>
+                               <Frame
+                                Margin="10,10,10,10"
+                                HeightRequest="200"
+                                HasShadow="False"
+                                CornerRadius="25"
+                                BorderColor="Black"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                WidthRequest="300">
+
+                                <StackLayout Padding="10" BackgroundColor="Transparent">
+                                    <Label
+                                        FontSize="30"
+                                        HorizontalOptions="Center"
+                                        Text="{Binding type}"
+                                        HorizontalTextAlignment="Center"
+                                        FontFamily="{StaticResource NormalFont}" 
+                                        TextColor="Black"
+                                        VerticalOptions="Center" />
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                                        <Label
+                                        FontAttributes="Bold"
+                                        FontSize="25"
+                                        HorizontalOptions="Center"
+                                        Text="R"
+                                        FontFamily="{StaticResource NormalFont}" 
+                                        TextColor="#81D25A"
+                                        VerticalOptions="Center" />
+                                        <Label
+                                        FontAttributes="Bold"
+                                        FontSize="25"
+                                        HorizontalOptions="Center"
+                                        Text="{Binding amount}"
+                                        FontFamily="{StaticResource NormalFont}" 
+                                        TextColor="#81D25A"
+                                        VerticalOptions="Center" />
+
+                                    </StackLayout>
+                                   
+                                   <!-- <Image Source="PayGate_Card_Brand_Logos_PayGate.png" HorizontalOptions="CenterAndExpand"/> -->
+
+                                    <Button
+                                        BackgroundColor="Transparent"
+                                        BorderColor="Black"
+                                        CornerRadius="10"
+                                        Command="{Binding Path=BindingContext.BuySubscriptionCommand, Source={x:Reference SubscriptionList}}"
+                                        CommandParameter="{Binding .}"
+                                        TextColor="#81D25A"
+                                        Text="Purchase"
+                                        />
+                                </StackLayout>
+                            </Frame>
+                            </ViewCell.View>
+                        </custom:CustomViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            
+
+            
+            
+        </StackLayout> 
+                  
+    </AbsoluteLayout>
+        
+            <!--<BoxView HeightRequest="2" Color="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>-->
+            <!--<Label
+                x:Name="NoDataLabel"
+                FontSize="Small"
+                FontFamily="{StaticResource NormalFont}" 
+                HorizontalOptions="Center"
+                IsVisible="{Binding labelIsVisible}"
+                Text="No data available"
+                TextColor="Black"
+                VerticalOptions="Center" />
+            <ListView
+                x:Name="SubscriptionList"
+                HasUnevenRows="True"
+                BackgroundColor="Transparent"
+                IsVisible="{Binding listIsVisible}"
+                ItemsSource="{Binding SubscriptionList}"
+                SeparatorVisibility="None">
+                <ListView.Header>
+                    <StackLayout Orientation="Vertical" >
+                    <Frame
+                                Margin="10,10,10,10"
+                        HasShadow="False"
+                                BorderColor="Gray"
+                                HeightRequest="150"
+                        BackgroundColor="Transparent"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                WidthRequest="300">
+
+                                <StackLayout Padding="10">
+                                    <Label
+                                        FontSize="30"
+                                        HorizontalOptions="Center"
+                                        FontFamily="{StaticResource SemiBold}" 
+                                        Text="{Binding CurrentSubscriptionText}"
+                                        TextColor="Black"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalOptions="Center" />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="25"
+                                        HorizontalOptions="Center"
+                                        HorizontalTextAlignment="Center"
+                                        FontFamily="{StaticResource SemiBold}" 
+                                        Text="{Binding SubscriptionExpiryDate}"
+                                        TextColor="MediumBlue"
+                                        VerticalOptions="Center" />
+                                  
+                                </StackLayout>
+                            </Frame>
+                    <BoxView HeightRequest="2" BackgroundColor="Gray" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></BoxView>
+                        </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <custom:CustomViewCell SelectedItemBackgroundColor="Transparent">
+                           <ViewCell.View>
+                               <Frame
+                                Margin="10,10,10,10"
+                                HeightRequest="200"
+                                HasShadow="False"
+                                CornerRadius="25"
+                                BorderColor="Black"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                WidthRequest="300">
+
+                                <StackLayout Padding="10" BackgroundColor="Transparent">
+                                    <Label
+                                        FontSize="30"
+                                        HorizontalOptions="Center"
+                                        Text="{Binding type}"
+                                        FontFamily="{StaticResource NormalFont}" 
+                                        TextColor="Black"
+                                        VerticalOptions="Center" />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="25"
+                                        HorizontalOptions="Center"
+                                        Text="{Binding amount}"
+                                        FontFamily="{StaticResource NormalFont}" 
+                                        TextColor="MediumBlue"
+                                        VerticalOptions="Center" />
+                                    <Image Source="PayGate_Card_Brand_Logos_PayGate.png" HorizontalOptions="CenterAndExpand"/>
+                                    <Button
+                                        BackgroundColor="Transparent"
+                                        BorderColor="Black"
+                                        CornerRadius="10"
+                                        Command="{Binding Path=BindingContext.BuySubscriptionCommand, Source={x:Reference SubscriptionList}}"
+                                        CommandParameter="{Binding .}"
+                                        TextColor="White"
+                                        Text="PURCHASE"
+                                        />
+                                </StackLayout>
+                            </Frame>
+                            </ViewCell.View>
+                        </custom:CustomViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+        
+            
+    </ContentPage.Content>
+</ContentPage>

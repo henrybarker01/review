@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BreathTechRelease.Views.PaymentPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:BreathTechRelease.ViewModels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid VerticalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3.3*" />
+                    <ColumnDefinition Width="3.3*" />
+                    <ColumnDefinition Width="3.3*" />
+                    <!--<ColumnDefinition Width="3.3*" />-->
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!--<Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    BorderColor="Gray"
+                    BorderWidth="1"
+                    Command="{Binding OnPaymentOptionSelected}"
+                    CommandParameter="{x:Static local:PaymentOptionEnum.CreditCard}"
+                    CornerRadius="0"
+                    Text="CreditCard" />
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    BorderColor="Gray"
+                    BorderWidth="1"
+                    Command="{Binding OnPaymentOptionSelected}"
+                    CommandParameter="{x:Static local:PaymentOptionEnum.Platform}"
+                    CornerRadius="0"
+                    Text="Gpay/ApplePay" />-->
+
+                <!--<Button
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    BorderColor="Gray"
+                    BorderWidth="1"
+                    Command="{Binding OnPaymentOptionSelected}"
+                    CommandParameter="{x:Static local:PaymentOptionEnum.PayPal}"
+                    CornerRadius="0"
+                    Text="PayPal" />-->
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    BorderColor="Gray"
+                    BorderWidth="1"
+                    Command="{Binding OnPaymentOptionSelected}"
+                    CommandParameter="{x:Static local:PaymentOptionEnum.DropUI}"
+                    CornerRadius="0"
+                    Text="Drop UI" />
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

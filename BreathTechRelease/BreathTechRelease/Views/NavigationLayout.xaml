@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Custom="clr-namespace:BreathTechRelease.CustomControls"
+             mc:Ignorable="d"
+             x:Class="BreathTechRelease.Views.NavigationLayout"
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions">
+
+    <NavigationPage.TitleView>
+        <!--<StackLayout Orientation="Horizontal" Spacing="0">
+            <Label Text="HOW TO NAVIGATE"
+               TextColor="#696969"
+               FontSize="16"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+              Margin="0,0,0,0"
+               />
+            <Image x:Name="searchImage"
+                   Source="search.png"
+                   WidthRequest="30" HeightRequest="30"
+                   HorizontalOptions="End"
+                   >
+                <Image.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0, 0, 5, 0" />
+                        <On Platform="Android" Value="0, 0, 10, 0"/>
+                    </OnPlatform>
+                </Image.Margin>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Search_Pressed"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>-->
+        <StackLayout Orientation="Horizontal"  Spacing="0"
+                    >
+            <Label x:Name="Heading"
+                   Margin="0,0,0,0"
+                   Text="HOW TO NAVIGATE"
+                   FontAttributes="Bold"
+                   FontSize="18"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   FontFamily="{StaticResource BoldFont}" 
+                   TextColor="#8C8C8C"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"/>
+
+            <Image x:Name="searchImage"
+                   Source="search.png"
+                   WidthRequest="30" HeightRequest="30"
+                   HorizontalOptions="End"
+                   >
+                <Image.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0, 0, 5, 0" />
+                        <On Platform="Android" Value="0, 0, 10, 0"/>
+                    </OnPlatform>
+                </Image.Margin>
+                <!--<Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Search_Pressed"></TapGestureRecognizer>
+                </Image.GestureRecognizers>-->
+            </Image>
+        </StackLayout>
+
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <RelativeLayout>
+            <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type= RelativeToParent,
+                       Property=Width,Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression
+                       Type=RelativeToParent,Property=Height,Factor=1}">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <CarouselView x:Name="cvWalkthrough" 
+                                Grid.Row="0"
+                                IndicatorView="MyIndicator"
+                                ItemsSource="{Binding navigationWalkthroughs}" 
+                                >
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+
+                                    <Grid HorizontalOptions="FillAndExpand" >
+                                        <Image Source="{Binding BackgroundImage}" 
+                               Aspect="Fill"
+                               VerticalOptions="FillAndExpand"
+                               HorizontalOptions="FillAndExpand"
+                               Opacity="0.9"/>
+                                        <Frame 
+                       Margin="0"
+                       HorizontalOptions="Center"
+                       VerticalOptions="FillAndExpand"
+                               BackgroundColor="Transparent"
+                            HasShadow="False">
+                                            <StackLayout Margin="0,0,0,10">
+                                                <ScrollView>
+                                                    <StackLayout >
+                                                        <Label Text="{Binding Heading}"
+                                               TextColor="#26304E"
+                                               BackgroundColor="Transparent"
+                                                FontFamily="{StaticResource BoldFont}"
+                                                HorizontalOptions="Start"
+                                                FontSize="Medium"/>
+
+                                                        <Label  Text="{Binding Caption}"
+                                                    TextColor="#26304E"
+                                                    
+                                                    BackgroundColor="Transparent"
+                                                    FontFamily="{StaticResource NormalFont}"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    FontSize="Body"
+                                                    IsVisible="{Binding isCaption}"/>
+
+                                                        <!--New Steps design-->
+                                                        <StackLayout IsVisible="{Binding isSteps}"
+                                                         Margin="0,30,0,0"
+                                                         BackgroundColor="Transparent">
+
+                                                            <!--Step 1-->
+                                                            <!-- <StackLayout Orientation="Horizontal"
+                                                             Spacing="10">
+                                                    <Frame HeightRequest="20"
+                                                           WidthRequest="20"
+                                                       CornerRadius="10"
+                                                       HasShadow="False"
+                                                       BackgroundColor="Green"
+                                                               HorizontalOptions="Center"
+                                                               VerticalOptions="Center"/>
+                                                    <Label Text="Step 1:"
+                                                           TextColor="Black"
+                                                           FontSize="Medium"
+                                                           WidthRequest="100"/>
+
+                                                    <Label Text="{Binding Step1}"
+                                                       TextColor="Black"/>
+                                                </StackLayout>-->
+
+                                                            <Grid HorizontalOptions="FillAndExpand" RowSpacing="15" VerticalOptions="FillAndExpand">
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="Auto"/>
+                                                                    <RowDefinition Height="Auto"/>
+                                                                    <RowDefinition Height="Auto"/>
+                                                                    <RowDefinition Height="Auto"/>
+                                                                    <RowDefinition Height="Auto"/>
+                                                                    <RowDefinition Height="Auto"/>
+                                                                    <RowDefinition Height="Auto"/>
+                                                                </Grid.RowDefinitions>
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="Auto"/>
+                                                                    <ColumnDefinition Width="Auto"/>
+                                                                    <ColumnDefinition Width="Auto"/>
+                                                                </Grid.ColumnDefinitions>
+
+
+                                                                <!--Step 1-->
+                                                                <Button BackgroundColor="LawnGreen"
+                                                           CornerRadius="10"
+                                                           
+                                                           HeightRequest="20"
+                                                           WidthRequest="20"
+                                                           Grid.Row="0"
+                                                           Grid.Column="0"
+                                                           VerticalOptions="Start"/>
+                                                                <Label Text="   Step 1 :   "
+                                                           TextColor="#26304E"
+                                                           FontFamily="{StaticResource NormalFont}"
+                                                           FontSize="15"
+                                                           Grid.Row="0"
+                                                           Grid.Column="1"/>
+
+                                                                <Label Text="{Binding Step1}"
+                                                           TextColor="#26304E"
+                                                           FontFamily="{StaticResource NormalFont}"
+                                                           CharacterSpacing="0"
+                                                           LineBreakMode="WordWrap"
+                                                           FontSize="15"
+                                                           HorizontalOptions="FillAndExpand"
+                                                           VerticalOptions="FillAndExpand"
+                                                           Grid.Row="0"
+                                                           Grid.Column="2"/>
+
+                                                                <!--Step 2-->
+                                                                <Button BackgroundColor="LawnGreen"
+                                                           CornerRadius="10"
+                                                           HeightRequest="20"
+                                                           WidthRequest="20"
+                                                           Grid.Row="1"
+                                                           Grid.Column="0"
+                                                            VerticalOptions="Start"/>
+                                                                <Label Text="   Step 2 :   "
+                                                           TextColor="#26304E"
+                                                           FontFamily="{StaticResource NormalFont}"
+                                                           FontSize="15"
+                                                           Grid.Row="1"
+                                                           Grid.Column="1"/>
+                                                                <Label Text="{Binding Step2}"
+                                                       TextColor="#26304E"
+                                                       FontFamily="{StaticResource NormalFont}"
+                                                       CharacterSpacing="0"
+                                                       LineBreakMode="WordWrap"
+                                                       HorizontalOptions="FillAndExpand"
+                                                       VerticalOptions="FillAndExpand"
+                                                           FontSize="15"
+                                                           Grid.Row="1"
+                                                           Grid.Column="2"/>
+
+                                                                <!--Step 3-->
+                                                                <Button BackgroundColor="LawnGreen"
+                                                           CornerRadius="10"
+                                                           HeightRequest="20"
+                                                           WidthRequest="20"
+                                                           Grid.Row="2"
+                                                           Grid.Column="0"
+                                                            VerticalOptions="Start"/>
+                                                                <Label Text="   Step 3 :   "
+                                                           TextColor="#26304E"
+                                                           FontFamily="{StaticResource NormalFont}"
+                                                           FontSize="15"
+                                                           Grid.Row="2"
+                                                           Grid.Column="1"/>
+
+                                                                <Label Text="{Binding Step3}"
+                                                           TextColor="#26304E"
+                                                           FontFamily="{StaticResource NormalFont}"
+                                                           CharacterSpacing="0"
+                                                           LineBreakMode="WordWrap"
+                                                           FontSize="15"
+                                                           Grid.Row="2"
+                                                           Grid.Column="2"/>
+
+                                                                <!--Step 4-->
+                                                                <Button BackgroundColor="LawnGreen"
+                                                           CornerRadius="10"
+                                                           HeightRequest="20"
+                                                           WidthRequest="20"
+                                                           Grid.Row="3"
+                                                           Grid.Column="0"
+                                                            VerticalOptions="Start"/>
+                                                                <Label Text="   Step 4 :   "
+                                                           TextColor="#26304E"
+                                                           FontFamily="{StaticResource NormalFont}"
+                                                           FontSize="15"
+                                                           Grid.Row="3"
+                                                           Grid.Column="1"/>
+
+                                                                <Label Text="{Binding Step4}"
+                                                           TextColor="#26304E"
+                                                           FontFamily="{StaticResource NormalFont}"
+                                                           CharacterSpacing="0"
+                                                           LineBreakMode="WordWrap"
+                                                           FontSize="15"
+                                                           Grid.Row="3"
+                                                           Grid.Column="2"/>
+
+                                                                <!--Step 5-->
+                                                                <Button BackgroundColor="LawnGreen"
+                                                           CornerRadius="10"
+                                                           HeightRequest="20"
+                                                           WidthRequest="20"
+                                                           Grid.Row="4"
+                                                           Grid.Column="0"
+                                                            VerticalOptions="Start"/>
+                                                                <Label Text="   Step 5 :   "
+                                                           TextColor="#26304E"
+                                                           FontFamily="{StaticResource NormalFont}"
+                                                           FontSize="15"
+                                                           Grid.Row="4"
+                                                           Grid.Column="1"/>
+
+                                                                <Label Text="{Binding Step5}"
+                                                           TextColor="#26304E"
+                                                           FontFamily="{StaticResource NormalFont}"
+                                                           CharacterSpacing="0"
+                                                           LineBreakMode="WordWrap"
+                                                           FontSize="15"
+                                                           Grid.Row="4"
+                                                           Grid.Column="2"/>
+
+                                                                <!--Step 6-->
+                                                                <Button BackgroundColor="LawnGreen"
+                                                           CornerRadius="10"
+                                                           HeightRequest="20"
+                                                           WidthRequest="20"
+                                                           Grid.Row="5"
+                                                           Grid.Column="0"
+                                                            VerticalOptions="Start"/>
+                                                                <Label Text="   Step 6 :   "
+                                                           TextColor="#26304E"
+                                                           FontFamily="{StaticResource NormalFont}"
+                                                           FontSize="15"
+                                                           Grid.Row="5"
+                                                           Grid.Column="1"/>
+                                                                <Label Text="{Binding Step6}"
+                                                           TextColor="#26304E"
+                                                           FontFamily="{StaticResource NormalFont}"
+                                                           CharacterSpacing="0"
+                                                           LineBreakMode="WordWrap"
+                                                           FontSize="15"
+                                                           Grid.Row="5"
+                                                           Grid.Column="2"
+                                                           VerticalOptions="Start"/>
+
+                                                                <!--Step 7-->
+                                                                <Button BackgroundColor="LawnGreen"
+                                                           CornerRadius="10"
+                                                           HeightRequest="20"
+                                                           WidthRequest="20"
+                                                           Grid.Row="6"
+                                                           Grid.Column="0"
+                                                            VerticalOptions="Start"/>
+                                                                <Label Text="   Step 7 :   "
+                                                           TextColor="#26304E"
+                                                           FontFamily="{StaticResource NormalFont}"
+                                                           FontSize="15"
+                                                           Grid.Row="6"
+                                                           Grid.Column="1"/>
+                                                                <Label Text="{Binding Step6}"
+                                                           TextColor="#26304E"
+                                                           FontFamily="{StaticResource NormalFont}"
+                                                           LineBreakMode="WordWrap"
+                                                           FontSize="15"
+                                                           Grid.Row="6"
+                                                           Grid.Column="2"/>
+
+                                                            </Grid>
+
+                                                            <!--Step 2-->
+                                                            <!--<StackLayout Orientation="Horizontal"
+                                                         Spacing="10">
+                                                    <Frame HeightRequest="20"
+                                                           WidthRequest="20"
+                                                       CornerRadius="10"
+                                                       HasShadow="False"
+                                                       BackgroundColor="Green"/>
+                                                    <Label Text="Step 2:"
+                                                           TextColor="Black"
+                                                           FontSize="Medium"
+                                                           WidthRequest="100"/>
+                                                    <Label Text="{Binding Step2}"
+                                                       TextColor="Black"/>
+                                                </StackLayout>
+
+                                                Step 3
+                                                <StackLayout Orientation="Horizontal"
+                                                         Spacing="10">
+                                                    <Frame HeightRequest="20"
+                                                           WidthRequest="20"
+                                                       CornerRadius="10"
+                                                       HasShadow="False"
+                                                       BackgroundColor="Green"/>
+                                                    <Label Text="Step 3:"
+                                                           TextColor="Black"
+                                                           FontSize="Medium"
+                                                           WidthRequest="100"/>
+                                                    <Label Text="{Binding Step3}"
+                                                       TextColor="Black"/>
+                                                </StackLayout>
+
+                                                Step 4
+                                                <StackLayout Orientation="Horizontal"
+                                                         Spacing="10">
+                                                    <Frame HeightRequest="20"
+                                                           WidthRequest="20"
+                                                       CornerRadius="10"
+                                                       HasShadow="False"
+                                                       BackgroundColor="Green"/>
+                                                    <Label Text="Step 4:"
+                                                           TextColor="Black"
+                                                           FontSize="Medium"
+                                                           WidthRequest="100"/>
+                                                    <Label Text="{Binding Step4}"
+                                                       TextColor="Black"/>
+                                                </StackLayout>
+
+                                                Step 5
+                                                <StackLayout Orientation="Horizontal"
+                                                         Spacing="10">
+                                                    <Frame HeightRequest="20"
+                                                           WidthRequest="20"
+                                                       CornerRadius="10"
+                                                       HasShadow="False"
+                                                       BackgroundColor="Green"/>
+                                                    <Label Text="Step 5:"
+                                                           TextColor="Black"
+                                                           FontSize="Medium"
+                                                           WidthRequest="100"/>
+                                                    <Label Text="{Binding Step5}"
+                                                       TextColor="Black"/>
+                                                </StackLayout>
+
+                                                Step 6
+                                                <StackLayout Orientation="Horizontal"
+                                                         Spacing="10">
+                                                    <Frame HeightRequest="20"
+                                                           WidthRequest="20"
+                                                       CornerRadius="10"
+                                                       HasShadow="False"
+                                                       BackgroundColor="Green"/>
+                                                    <Label Text="Step 6:"
+                                                           TextColor="Black"
+                                                           FontSize="Medium"
+                                                           WidthRequest="100"/>
+                                                    <Label Text="{Binding Step6}"
+                                                       TextColor="Black"/>
+                                                </StackLayout>
+
+                                                Step 7
+                                                <StackLayout Orientation="Horizontal"
+                                                             Spacing="10">
+                                                    <Frame HeightRequest="20"
+                                                           WidthRequest="20"
+                                                       CornerRadius="10"
+                                                       HasShadow="False"
+                                                       BackgroundColor="Green"/>
+                                                    <Label Text="Step 7:"
+                                                           TextColor="Black"
+                                                           FontSize="Medium"
+                                                           WidthRequest="100"/>
+                                                    <Label Text="{Binding Step7}"
+                                                       TextColor="Black"/>
+                                                </StackLayout>-->
+
+                                                        </StackLayout>
+
+                                                        <StackLayout Spacing="0" HeightRequest="{Binding Height}">
+                                                            <Grid >
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="*"/>
+                                                                    <RowDefinition Height="*"/>
+                                                                    <RowDefinition Height="*"/>
+                                                                    <RowDefinition Height="*"/>
+                                                                </Grid.RowDefinitions>
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="*"/>
+                                                                    <ColumnDefinition Width="*"/>
+                                                                </Grid.ColumnDefinitions>
+
+
+                                                                <Image Source="{Binding Image}" HeightRequest="120" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                                                <Image Source="{Binding Image0}" HeightRequest="120" Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                                                <Image Source="{Binding Image1}" Grid.Row="1" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                                                <Image Source="{Binding Image2}" Grid.Row="1" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                                                <Image Source="{Binding Image3}" Grid.Row="2" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                                                <Image Source="{Binding Image4}" Grid.Row="2" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                                                <Image Source="{Binding Image5}" Grid.Row="3" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                                                <Image Source="{Binding Image6}" Grid.Row="3" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                                            </Grid>
+                                                        </StackLayout>
+
+
+                                                        <Image Source="{Binding Image7}" HorizontalOptions="FillAndExpand" Margin="0,0,0,20"/>
+                                                        <Label Text="{Binding Caption1}"
+                                           TextColor="#696969"
+                                           FontFamily="{StaticResource NormalFont}"
+                                           HorizontalOptions="Center"
+                                           FontSize="Medium"
+                                           Margin="0,0,0,20"/>
+                                                        <Image Source="{Binding Image8}" HeightRequest="250" WidthRequest="250"  HorizontalOptions="CenterAndExpand"/>
+                                                    </StackLayout>
+                                                </ScrollView>
+                                            </StackLayout>
+                                        </Frame>
+
+
+                                    </Grid>
+
+
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <IndicatorView  IndicatorColor="LawnGreen"
+                           SelectedIndicatorColor="#EDEDED"
+                            x:Name="MyIndicator" BackgroundColor="Transparent"
+                             VerticalOptions="EndAndExpand"/>
+                    <StackLayout VerticalOptions="EndAndExpand"
+                         HorizontalOptions="FillAndExpand"
+                         BackgroundColor="#26304e"
+                     Grid.Row="1"
+                         >
+                        <Button Text="GET STARTED" Clicked="Close_Clicked"
+                        VerticalOptions="EndAndExpand"
+                        HorizontalOptions="FillAndExpand" 
+                        TextColor="White"
+                        HeightRequest="50" 
+                        FontFamily="{StaticResource BoldFont}" 
+                        BackgroundColor="#2a2e3a"></Button>
+                    </StackLayout>
+                </Grid>
+            </ContentView>
+            <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type= RelativeToParent,
+                         Property=Width,Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression
+                         Type=RelativeToParent,Property=Height,Factor=1}" IsVisible="false"
+                         BackgroundColor="Transparent" x:Name="cview_Intro">
+                <ActivityIndicator IsEnabled="true" IsVisible="true"
+                                   IsRunning="true" WidthRequest="50"
+                                   HeightRequest="50" VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand"
+                                   Color="#90d25b"  x:Name="activity"/>
+
+            </ContentView>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

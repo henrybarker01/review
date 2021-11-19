@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BreathTechRelease.Views.Welcome"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="False"
+             xmlns:inthehand="clr-namespace:InTheHand.Forms;assembly=InTheHand.Forms"   
+             >
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="WELCOME TO BREATHTECH"
+                   FontFamily="{StaticResource BoldFont}" 
+                    HorizontalOptions="CenterAndExpand" 
+                   FontSize="16"
+                   VerticalOptions="CenterAndExpand"
+                   Margin="-20,0,0,0"
+                   TextColor="#C6C6C6"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="TutorialImage_.png"
+                   Aspect="AspectFill">
+
+            </Image>
+            <StackLayout Orientation="Horizontal" 
+                     VerticalOptions="EndAndExpand" 
+                     HorizontalOptions="FillAndExpand"
+                     Margin="20,0,20,100">
+
+                <Button Margin="0,0,10,0" FontFamily="{StaticResource SemiBold}" TextTransform="Uppercase"  Clicked="tutorial" Text="TUTORIAL" Grid.Column="0" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" BackgroundColor="#80d25b"  MinimumHeightRequest="50" CornerRadius="15">
+                    <Button.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">32</On>
+                            <On Platform="Android,Windows">37</On>
+                        </OnPlatform>
+                    </Button.HeightRequest>
+                </Button>
+
+                <Button Margin="10,0,0,0" FontFamily="{StaticResource SemiBold}" TextTransform="Uppercase"   Clicked="breathe" Text="BREATHE" Grid.Column="1" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand"  BackgroundColor="#80D25B"  MinimumHeightRequest="50" CornerRadius="15">
+                    <Button.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS">32</On>
+                            <On Platform="Android,Windows">37</On>
+                        </OnPlatform>
+                    </Button.HeightRequest>
+                </Button>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

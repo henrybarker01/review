@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             NavigationPage.HasBackButton="False"
+             x:Class="BreathTechRelease.Views.SubMenuListViewTemplate"
+             xmlns:custom="clr-namespace:BreathTechRelease.CustomControls;assembly=BreathTechRelease">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text=""
+                   x:Name="Heading"
+                   Margin="50,0,30,0"
+                   FontFamily="{StaticResource BoldFont}" 
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="18"
+                   VerticalOptions="CenterAndExpand" 
+                   TextColor="#696969">
+            <Label.Margin>
+               <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="50,0,30,0" />
+                        <On Platform="Android" Value="50,0,30,0" />
+                    </OnPlatform>
+            </Label.Margin>
+            </Label>
+            <Image x:Name="searchImage"   Source="search.png" WidthRequest="25" HeightRequest="25">
+            <Image.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0, 0, 5, 0" />
+                        <On Platform="Android" Value="0, 0, 10, 0" />
+                    </OnPlatform>
+                </Image.Margin>
+            <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Search_Pressed"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <!--<Button
+                    x:Name="searchImage"
+                        TextColor="#C6C6C6"
+                        Clicked="Search_Pressed"
+                        CornerRadius="15"
+                        BorderColor="White"
+                        HeightRequest="25"
+                        IsVisible="True"
+                        WidthRequest="25"
+                        HorizontalOptions="End"
+                        ImageSource="search.png"
+                        
+                        BackgroundColor="White"
+                        />-->
+            <!--<Image Source="" HorizontalOptions="End" HeightRequest="40" WidthRequest="40" Margin="0,5,5,10"/>-->
+        </StackLayout>
+
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <SearchBar
+                Grid.Row="0"
+                    x:Name="searchBar"
+                   HorizontalOptions="Center"
+                   FontFamily="{StaticResource BoldFont}" 
+                   VerticalOptions="CenterAndExpand"
+                   Placeholder="Search..."
+                           IsVisible="false"
+                   CancelButtonColor="#26304e"
+                   PlaceholderColor="DarkGray"
+                   HorizontalTextAlignment="Start"
+                   TextChanged="OnTextChanged"/>
+
+            <ListView
+                    Grid.Row="1"
+                    x:Name="ItemListView"
+                    HasUnevenRows="True"
+                        Margin="0"
+                    BackgroundColor="White"
+                    VerticalScrollBarVisibility="Never"
+                    RowHeight="{OnIdiom Phone=200, Tablet=300}"
+                    VerticalOptions="FillAndExpand"
+                    ItemTapped="ItemListView_ItemTapped" 
+                    android:ListView.IsFastScrollEnabled="True"
+                    SeparatorVisibility="None"
+                    >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                              <custom:CustomViewCell SelectedItemBackgroundColor="White">
+                               <ViewCell.View>
+                                   <Frame BorderColor="White"
+                                           IsClippedToBounds="true"
+                                           Padding="0"
+                                           Margin="0"
+                                           HasShadow="False"
+                                          HeightRequest="{OnIdiom Phone=200, Tablet=300}">
+                                        <Grid  Margin="15,5,15,5" RowSpacing="0" HeightRequest="{OnIdiom Phone=200, Tablet=300}" VerticalOptions="FillAndExpand"> 
+                                            <Image Source="{Binding Icon}" HeightRequest="{OnIdiom Phone=200, Tablet=300}" Aspect="Fill" VerticalOptions="CenterAndExpand"/>
+                                        </Grid>
+                                    </Frame>
+                               </ViewCell.View>
+                              </custom:CustomViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+            <StackLayout VerticalOptions="EndAndExpand"
+                         HorizontalOptions="FillAndExpand"
+                         BackgroundColor="#26304e"
+                         Grid.Row="2">
+                <Button Text="Close" 
+                        Clicked="Close_Clicked"
+                        TextTransform="Uppercase"
+                        VerticalOptions="EndAndExpand"
+                        HorizontalOptions="FillAndExpand" 
+                        TextColor="White"
+                        HeightRequest="50" 
+                        FontFamily="{StaticResource BoldFont}"
+                        FontSize="18"
+                        BackgroundColor="#26304e"></Button>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Close_Clicked"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

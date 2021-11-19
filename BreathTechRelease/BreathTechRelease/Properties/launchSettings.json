@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BreathTechRelease": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

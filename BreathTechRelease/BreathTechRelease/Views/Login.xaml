@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+          xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:controls="clr-namespace:BreathTechRelease.CustomControls"
+             x:Class="BreathTechRelease.Views.Login"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False"
+            BackgroundImageSource="">
+    <ContentPage.Content>
+                  <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <ffimageloadingsvg:SvgCachedImage Source="resource://BreathTechRelease.Resources.background.svg" Aspect="Fill"/>
+
+        <ScrollView VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <StackLayout>
+                <Frame CornerRadius="10" HasShadow="False" WidthRequest="675"
+                   BackgroundColor="#FFF"
+                   Margin="20,0,20,10" 
+                   VerticalOptions="Center">
+                    <StackLayout  Margin="10,20,10,10"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="CenterAndExpand">
+
+                        <!--<Label Text="SIGN IN" HorizontalOptions="Center" FontAttributes="Bold" FontFamily="{StaticResource BoldFont}" TextColor="DarkGray" />-->
+                        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Image Source="Icon_Home_Email.png" WidthRequest="10" HeightRequest="25"/>
+                        <controls:ImageEntry x:Name="Email" Text="" Placeholder="Email" Image="Icon_Home_Email.png" />
+                        
+                    </StackLayout>-->
+                        <controls:ImageEntry Image="emailicon" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False"  LineColor="#C9C9C9" x:Name="Email" Text="" Placeholder="Email"  HorizontalOptions="FillAndExpand"/>
+
+                        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Image Source="Icon_Home_Lock.png" WidthRequest="10" HeightRequest="25"/>
+                        <Entry IsPassword="True" Text="" x:Name="Password" Placeholder="Password" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>-->
+                        <controls:ImageEntry Image="lockicon" LineColor="#C9C9C9"   IsPassword="True" Text="" x:Name="Password" Placeholder="Password" HorizontalOptions="FillAndExpand"/>
+
+                        <Label x:Name="ErrorMsg" HorizontalOptions="Center" TextColor="Red" FontFamily="{StaticResource BoldFont}" />
+                        <Button Text="Sign In" 
+                         TextTransform="None"
+                        x:Name="BtnLogin"
+                        CornerRadius="25" 
+                        Margin="20,20,20,0"
+                        BackgroundColor="#26304e"
+                        TextColor="#FFF"
+                        Clicked="Login_Clicked"
+                        FontFamily="{StaticResource BoldFont}" 
+                        HeightRequest="50"/>
+
+                        <!--<Label Text="OR"
+                           FontFamily="{StaticResource BoldFont}" 
+                               HorizontalOptions="CenterAndExpand"/>-->
+
+
+                        <!--<Label Text="OR"
+                           FontFamily="{StaticResource BoldFont}" 
+                               HorizontalOptions="CenterAndExpand"
+                           IsVisible="{Binding IsAppleSignInAvailable}"/>-->
+
+
+                        <!-- IsVisible="{Binding IsAppleSignInAvailable}"-->
+
+                    </StackLayout>
+
+                </Frame>
+            
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                    <Frame CornerRadius="10" HasShadow="False" WidthRequest="675" BackgroundColor="Transparent"
+                   Margin="20,0,20,0" 
+                   VerticalOptions="Center">
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <!--<Button
+                                Text="Sign in with Google"
+                                    TextTransform="None"
+                                HorizontalOptions="CenterAndExpand"
+                        CornerRadius="25" 
+                        Margin="40,20,40,20"
+                        Padding="5,5,5,5"
+                        BackgroundColor="#FFF"
+                        TextColor="Gray"
+                        Command="{Binding LoginCmd}"
+                        ImageSource="Icon_Google.png"
+                        HeightRequest="50"
+                        FontFamily="{StaticResource SemiBold}" 
+                       />-->
+                            <ffimageloadingsvg:SvgCachedImage   Margin="10,10,10,10" IsVisible="{Binding IsAppleSignInAvailable}"
+        HeightRequest="50" HorizontalOptions="CenterAndExpand" Source="resource://BreathTechRelease.Resources.applelogin.svg"  >
+                                <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                                    <TapGestureRecognizer    Command="{Binding SignInWithAppleCommand}" />
+                                </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                            </ffimageloadingsvg:SvgCachedImage>
+
+
+                            <ffimageloadingsvg:SvgCachedImage   Margin="10,10,10,10"
+ HeightRequest="50" HorizontalOptions="FillAndExpand" Source="ic_googleLogin.png"  >
+                                <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                                    <TapGestureRecognizer   Command="{Binding LoginCmd}"/>
+                                </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                            </ffimageloadingsvg:SvgCachedImage>
+                            </StackLayout>
+                    </Frame>
+                    <!--<Label x:Name="ForgotPassword" Text="Forgot Password?" TextColor="White">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ForgotPasswordGesture_Tapped">
+
+                        </TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>-->
+
+                    
+                    <!--<Button Text="Sign in with Google" 
+                        x:Name="BtnGoogleLogin"
+                        CornerRadius="25" 
+                        Margin="10,10,10,10"
+                        Padding="5,5,5,5"
+                        BackgroundColor="#FFF"
+                        TextColor="Gray"
+                        Command="{Binding LoginCmd}"
+                        ImageSource="Icon_Google.png"
+                        HeightRequest="50" 
+                        FontFamily="{StaticResource SemiBold}" 
+                       />
+                <ffimageloadingsvg:SvgCachedImage   Margin="10,10,10,10"
+ HeightRequest="50" HorizontalOptions="CenterAndExpand" Source="resource://BreathTechRelease.Resources.googlelogin.svg"  >
+                    <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                        <TapGestureRecognizer   Command="{Binding LoginCmd}"/>
+                    </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                </ffimageloadingsvg:SvgCachedImage>-->
+
+                   
+                <!--<controls:AppleSignInButton
+                         Command="{Binding SignInWithAppleCommand}"
+                         CornerRadius="25"
+                         Margin="10,0,10,10"
+                         ButtonStyle="Black"
+                         HeightRequest="50"
+                         FontFamily="{StaticResource BoldFont}"
+                        IsVisible="{Binding IsAppleSignInAvailable}"/>-->
+
+                <Label x:Name="CreateAccount" Margin="0,10,0,0" HorizontalOptions="CenterAndExpand" Text="Create a New Account" TextColor="White" FontFamily="{StaticResource NormalFont}" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="CreateAccountGesture_Tapped">
+
+                        </TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label x:Name="ResendVerificationMail" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" Text="Resend Verification Mail" TextColor="White" FontFamily="{StaticResource NormalFont}" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="VerificationMail_Tapped">
+
+                        </TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label x:Name="ResetPassword" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" Text="Reset Password" TextColor="White" FontFamily="{StaticResource NormalFont}" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ResetPassword_Tapped">
+
+                        </TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </StackLayout>
+        </StackLayout>
+      </ScrollView>
+                      </Grid>
+    </ContentPage.Content>
+</ContentPage>

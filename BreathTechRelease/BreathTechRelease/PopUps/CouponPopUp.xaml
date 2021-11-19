@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rg1:PopupPage  xmlns:rg1="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BreathTechRelease.PopUps.CouponPopUp"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+                xmlns:custom="clr-namespace:BreathTechRelease.CustomControls;assembly=BreathTechRelease"
+                CloseWhenBackgroundIsClicked="True"
+                >
+    <Frame BackgroundColor="#7FD362" VerticalOptions="Center" HeightRequest="350" Margin="20" HasShadow="False" Padding="10" CornerRadius="10" >
+        
+    <Grid>
+        
+    <Image Source="BackgroundImage.jpg" HeightRequest="350" VerticalOptions="Center" Aspect="Fill" />
+
+    <StackLayout VerticalOptions="Center" >
+        <Label Text="Promotions"
+                   TextColor="White"
+                   FontSize="Title"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand"
+                   FontFamily="{StaticResource BoldFont}"/>
+        <Entry x:Name="promoEntry" Text="" Margin="0,50,0,0" Placeholder="Promo Code" PlaceholderColor="White" BackgroundColor="Transparent" />
+        <Label
+                            x:Name="ErrorMsg"
+                            HorizontalOptions="Center"
+                            FontFamily="{StaticResource BoldFont}" 
+                            TextColor="Red" />
+        <Button Text="Apply" BackgroundColor="White" CornerRadius="25" Clicked="promoButton_Clicked"  FontFamily="{StaticResource BoldFont}"/>
+        <StackLayout VerticalOptions="End">
+            <Button Text="Skip" Margin="0,50,0,0" BackgroundColor="White" CornerRadius="25" Clicked="skip_Clicked"  FontFamily="{StaticResource BoldFont}"/>
+        </StackLayout>
+    </StackLayout>
+        </Grid>
+        </Frame>
+</rg1:PopupPage>    

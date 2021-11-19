@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BreathTechRelease.Views.MeetTheTeam"
+             xmlns:controls="clr-namespace:BreathTechRelease.Views">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Label x:Name="Heading"
+                   Margin="0,0,30,0"
+                   Text=""
+                   FontFamily="{StaticResource BoldFont}" 
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="16"
+                   VerticalOptions="CenterAndExpand" 
+                   TextColor="#c6c6c6"/>
+            <Image Source="" HorizontalOptions="End" HeightRequest="40" WidthRequest="40" Margin="0,5,5,10"/>
+        </StackLayout>
+
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical" >
+            <StackLayout VerticalOptions="FillAndExpand">
+                <StackLayout x:Name="DocLayout"
+                           VerticalOptions="FillAndExpand">
+                    <controls:CustomWebView  Source = "" x:Name="URL_Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                </StackLayout>
+
+                <StackLayout  x:Name="BioLayout"
+                          Orientation="Vertical" 
+                          VerticalOptions="Center"
+                          BackgroundColor="#FFF" >
+                    <Label Text="Meet The Team"  FontFamily="{StaticResource BoldFont}" FontSize="Caption"  HorizontalOptions="Center"></Label>
+
+                    <ListView   x:Name="ItemListView"
+                                HasUnevenRows="True"
+                                >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell 
+                                      >
+                                    <Frame CornerRadius="15" 
+                                           IsClippedToBounds="true"
+                                           Padding="0"
+                                           Margin="20,20,20,20">
+                                        <StackLayout>
+                                            <Label Text="{Binding BioName}" FontFamily="{StaticResource SemiBold}" FontSize="Caption" HorizontalOptions="Center"/>
+                                            <Image Source="{Binding BioImage}"/>
+                                            <Label Text="{Binding BioText}" FontSize="Body" Margin="30,0,30,30" FontFamily="{StaticResource NormalFont}" />
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="End"
+                         BackgroundColor="#2a2e3a">
+
+                <Button Text="Close" 
+                            TextColor="White"
+                            BackgroundColor="#2a2e3a"
+                            CornerRadius="25" 
+                            Margin="20,0,20,0"
+                            Clicked="CLOSE_Clicked"
+                        FontFamily="{StaticResource BoldFont}" 
+                     />
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

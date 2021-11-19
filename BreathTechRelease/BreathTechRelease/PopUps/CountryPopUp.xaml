@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages1:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:pages1="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BreathTechRelease.PopUps.CountryPopUp">
+    <pages1:PopupPage.Content>
+        <StackLayout x:Name="countryStack" FlowDirection="LeftToRight" BackgroundColor="Transparent" Orientation="Vertical" Margin="20">
+            <Frame FlowDirection="MatchParent" CornerRadius="10" Padding="0" HasShadow="true" BackgroundColor="White">
+                <StackLayout Spacing="0" FlowDirection="MatchParent">
+                    <SearchBar Placeholder="Search Country" Text="{Binding SearchCountry}" HeightRequest="50" MinimumHeightRequest="50" />
+                    <ListView x:Name="CountryListView" SelectedItem="{Binding SelectedCountry}" ItemsSource="{Binding CountryList}" HasUnevenRows="True" CachingStrategy="RecycleElement">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout FlowDirection="MatchParent" Spacing="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="20">
+                                        <Image Source="{Binding countryFlag}" HorizontalOptions="Start" Aspect="AspectFit" VerticalOptions="Center" WidthRequest="50" HeightRequest="30" />
+                                        <Label Text="{Binding countryName}" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" FontSize="Medium" VerticalOptions="Center"/>
+                                        <!--<Label VerticalTextAlignment="Center" HorizontalOptions="Start" FontSize="Medium" VerticalOptions="Center" >
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    -->
+                                        <!--<Span Text="("/>-->
+                                        <!--
+                                                    <Span Text="{Binding countryCode}"/>
+                                                    -->
+                                        <!--<Span Text=")"/>-->
+                                        <!--
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>-->
+                                        <Label Text="{Binding countryPrefix}" VerticalTextAlignment="Center" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="Start"/>
+                                        <!--<Label Text="{Binding countryName}" VerticalTextAlignment="Center" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>-->
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </pages1:PopupPage.Content>
+</pages1:PopupPage>

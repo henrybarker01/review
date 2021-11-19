@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:control="clr-namespace:BreathTechRelease.Helpers"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             xmlns:custom="clr-namespace:BreathTechRelease.CustomControls"
+             x:Class="BreathTechRelease.Views.LegalDocumentTemplate"
+             xmlns:controls="clr-namespace:BreathTechRelease.Views"
+             BackgroundColor="#FFFFFF"
+             BackgroundImageSource="WhitePages_11.png"
+             >
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" Spacing="0">
+            <Label x:Name="Heading"
+                   Text=""
+                   FontFamily="{StaticResource BoldFont}" 
+                   HorizontalOptions="EndAndExpand" 
+                   FontSize="18"
+                   VerticalOptions="EndAndExpand"
+                   HorizontalTextAlignment="End"
+                   VerticalTextAlignment="End"
+                   TextColor="#8C8C8C">
+                <Label.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0, 0, 0, 8" />
+                        <On Platform="Android" Value="0, 0,15,0" />
+                    </OnPlatform>
+                </Label.Margin>
+            </Label>
+            <Image x:Name="searchImage" HorizontalOptions="EndAndExpand" Source="search.png" WidthRequest="25" HeightRequest="25">
+                <Image.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="0, 0, 5, 0" />
+                        <On Platform="Android" Value="0, 0, 10, 0" />
+                    </OnPlatform>
+                </Image.Margin>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Search_Pressed"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <!--<ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Padding="12,30,12,0">
+                    <StackLayout x:Name="SupportLayout" 
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="10">
+                        <Label Text="If you're experiencing any technical challenges with our app, please submit 'Your Feedback' below." FontFamily="{StaticResource NormalFont}"/>
+                        <Label Text="Should you experience an issue with your account, please include your name and email address so we can contact you for resolution." FontFamily="{StaticResource NormalFont}"/>
+                    </StackLayout>
+                </Grid>
+                <Grid Grid.Row="1" Padding="10,20,10,10" Margin="20,130,20,0">
+                    <StackLayout x:Name="EmailLayout"  Background="login.png">
+
+                        <StackLayout Orientation="Vertical" >
+
+                            <Frame   Margin="5,5,5,5"  Style="{StaticResource FrameStyle}">
+
+                                <custom:RoundedEntry  Style="{StaticResource EntryStyle}"  Placeholder="First Name" IsEnabled="False"
+                               Text=""
+                           x:Name="TbName"/>
+
+                            </Frame>
+                            <Frame   Margin="5,5,5,5"  Style="{StaticResource FrameStyle}">
+
+                                <custom:RoundedEntry x:Name="TBEmail" Style="{StaticResource EntryStyle}"  Placeholder="Email Address" IsEnabled="False"/>
+
+                            </Frame>
+                            <Frame   Margin="5,5,5,5"  Style="{StaticResource FrameStyle}">
+
+                                <custom:RoundedEntry Placeholder="Your Feedback"
+                                    VerticalOptions="CenterAndExpand"
+                           IsTextPredictionEnabled="True"  
+                           HorizontalOptions="Fill"
+                               Text="" Style="{StaticResource EntryStyle}" 
+                           x:Name="TBFeedback"
+                                   />
+                            </Frame>
+                            <Label x:Name="ErrorMsg" Text="" TextColor="Red"/>
+                            <Button Margin="40,20,40,10"
+                                    CornerRadius="25"
+                            Text="Submit"
+                                 TextColor="White"
+                    HeightRequest="50"
+                    FontFamily="{StaticResource BoldFont}" 
+                    BackgroundColor="#26304e"
+                            Clicked="Send_Clicked"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <StackLayout VerticalOptions="End"
+                       BackgroundColor="#26304e" >
+
+                        <Button Text="Close"
+                        FontAttributes="Bold"
+                            TextColor="White"
+                            BackgroundColor="#26304e"
+                            CornerRadius="25" 
+                            Margin="20,0,20,0"
+                            Clicked="CLOSE_Clicked"
+                     />
+                    </StackLayout>
+                </Grid>
+            </Grid>-->
+        <StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical">
+            <StackLayout>
+                <SearchBar x:Name="searchBar"
+                           IsVisible="False"
+                   HorizontalOptions="Center"
+                   FontFamily="{StaticResource BoldFont}" 
+                   VerticalOptions="CenterAndExpand"
+                   Placeholder="Search..."
+                   CancelButtonColor="#26304e"
+                   PlaceholderColor="#C6C6C6"
+                   HorizontalTextAlignment="Start"
+                   TextChanged="OnTextChanged"/>
+
+            </StackLayout>
+            <ScrollView   x:Name="BioLayout" VerticalScrollBarVisibility="Never" Orientation="Vertical">
+                <StackLayout VerticalOptions="FillAndExpand">
+                    <StackLayout 
+                                  Margin="10"
+                          Orientation="Vertical" 
+                          VerticalOptions="Center"
+                          BackgroundColor="#FFF" >
+
+                        <Image Source="meetTheTeam.png" HorizontalOptions="CenterAndExpand"/>
+                        <control:RepeaterView Orientation="Vertical" Margin="0,-8,0,0" FlowDirection="MatchParent" x:Name="repeaterView">
+                            <control:RepeaterView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid RowDefinitions="Auto,Auto,Auto">
+                                            <Grid Grid.Row="0" Padding="10,10,10,0">
+                                                <Label Text="{Binding BioName}" FontFamily="{StaticResource SemiBold}" TextColor="#26304E" FontSize="18" Margin="0,20,0,0"  HorizontalOptions="Center"/>
+                                            </Grid>
+                                            <Grid Grid.Row="1" Padding="5,2,5,5">
+                                                <Image Source="{Binding BioImage}">
+                                                    <Image.Margin>
+                                                        <OnPlatform x:TypeArguments="Thickness">
+                                                            <On Platform="iOS" Value="20, 20,20, 0" />
+                                                            <On Platform="Android" Value="20,20, 20, 0" />
+                                                        </OnPlatform>
+                                                    </Image.Margin>
+                                                </Image>
+                                            </Grid>
+                                            <Grid Grid.Row="2" Padding="10,0,0,0">
+                                                <custom:CustomLabel Text="{Binding BioText}" HorizontalTextAlignment="Start" VerticalTextAlignment="Start"   TextColor="#26304E"  HorizontalOptions="FillAndExpand"  FontSize="15"  FontFamily="{StaticResource NormalFont}"/>
+                                            </Grid>
+                                        </Grid>
+                                        <!--<StackLayout Margin="0,0,0,0" BackgroundColor="Aquamarine">
+                                            <Label Text="{Binding BioName}" FontFamily="{StaticResource SemiBold}" TextColor="#26304E" FontSize="18" Margin="0,20,0,0"  HorizontalOptions="Center"/>
+                                            <Image Source="{Binding BioImage}">
+                                                <Image.Margin>
+                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                        <On Platform="iOS" Value="20, 20,20, 0" />
+                                                        <On Platform="Android" Value="20,20, 20, 0" />
+                                                    </OnPlatform>
+                                                </Image.Margin>
+                                            </Image>
+                                            <custom:CustomLabel Text="{Binding BioText}" LetterSpacing="0.1" TextColor="#26304E" HorizontalTextAlignment="Start"  HorizontalOptions="FillAndExpand" FontSize="18" Margin="5,20,5,0" FontFamily="{StaticResource NormalFont}"/>
+                                        </StackLayout>-->
+                                    </ViewCell>
+                                </DataTemplate>
+                            </control:RepeaterView.ItemTemplate>
+                        </control:RepeaterView>
+
+                    </StackLayout>
+
+
+
+
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout x:Name="DocLayout"  
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20">
+                    <controls:CustomWebView   x:Name="URL_Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                               Navigated="URL_Text_Navigated" Navigating="URL_Text_Navigating"/>
+                </StackLayout>
+                <!--<StackLayout x:Name="SupportLayout" 
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20" >
+
+                    <Label Text="If you're experiencing any technical challenges with our app, please submit 'Your Feedback' below." FontFamily="{StaticResource NormalFont}" Margin="0,0,0,10"/>
+                    <Label Text="Should you experience an issue with your account, please include your name and email address so we can contact you for resolution." FontFamily="{StaticResource NormalFont}"/>
+
+                </StackLayout>-->
+                <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0"  Padding="10,20,10,0">
+                            <StackLayout x:Name="SupportLayout" 
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="15">
+                                <Label Text="If you're experiencing any technical challenges with our app, please submit 'Your Feedback' below." TextColor="#26304E" FontFamily="{StaticResource NormalFont}"/>
+                                <Label Text="Should you experience an issue with your account, please include your name and email address so we can contact you for resolution." TextColor="#26304E" FontFamily="{StaticResource NormalFont}"/>
+                            </StackLayout>
+                        </Grid>
+                        <Grid Grid.Row="1" Padding="10,26,10,10">
+                            <StackLayout x:Name="EmailLayout"  Background="login.png">
+                                <StackLayout Orientation="Vertical">
+
+                                    <Frame   Margin="5,5,5,5"  Style="{StaticResource FrameStyle}">
+
+                                        <custom:RoundedEntry  Style="{StaticResource EntryStyle}"  Placeholder="First Name" 
+                               Text="" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False"
+                           x:Name="TbName"/>
+
+                                    </Frame>
+
+                                    <Frame   Margin="5,5,5,5"  Style="{StaticResource FrameStyle}">
+
+                                        <custom:RoundedEntry  Style="{StaticResource EntryStyle}"  Placeholder="Last Name (Optional)" 
+                               Text="" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False"
+                           x:Name="TbLastName"/>
+
+                                    </Frame>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image   HorizontalOptions="Start" x:Name="flagImage" VerticalOptions="Center" HeightRequest="40" WidthRequest="40"/>
+                                        <Label  FontSize="Small"  TextColor="Black" HorizontalOptions="Center" MaxLines="1" x:Name="lblCountryCode" VerticalOptions="Center"/>
+                                        <Frame   Margin="5,5,5,5" HorizontalOptions="FillAndExpand" Style="{StaticResource FrameStyle}">
+                                            <custom:RoundedEntry Keyboard="Numeric" MaxLength="12"   Style="{StaticResource EntryStyle}"  Placeholder="Contact Number (Optional)" 
+                                IsTextPredictionEnabled="False" IsSpellCheckEnabled="False"
+                           x:Name="TbContactno"/>
+
+                                        </Frame>
+                                    </StackLayout>
+
+                                    <Frame   Margin="5,5,5,5"  Style="{StaticResource FrameStyle}">
+
+                                        <custom:RoundedEntry x:Name="TBEmail" Style="{StaticResource EntryStyle}"  Placeholder="Email Address" IsEnabled="False"/>
+
+                                    </Frame>
+                                    <Frame   Margin="5,5,5,5"  Style="{StaticResource FrameStyle}">
+
+                                        <custom:RoundedEntry Placeholder="Your Feedback"
+                                    VerticalOptions="CenterAndExpand"
+                           IsTextPredictionEnabled="True"  
+                           HorizontalOptions="Fill"
+                               Text="" Style="{StaticResource EntryStyle}" 
+                           x:Name="TBFeedback"
+                                   />
+                                    </Frame>
+                                    <Label x:Name="ErrorMsg" Text="" TextColor="Red"/>
+                                    <Button Margin="40,0,40,10"
+                                    CornerRadius="25"
+                            Text="Submit"
+                            TextTransform="Uppercase"
+                                 TextColor="White"
+                    HeightRequest="50"
+                    FontFamily="{StaticResource BoldFont}" 
+                    BackgroundColor="#26304e"
+                            Clicked="Send_Clicked"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+                    </Grid>
+                </ScrollView>
+            </StackLayout>
+            <StackLayout VerticalOptions="End"
+                       BackgroundColor="#26304e" >
+
+                <Button Text="CLOSE"
+                        
+                        FontAttributes="None"
+                        FontFamily="{StaticResource BoldFont}"
+                        HorizontalOptions="CenterAndExpand"
+                            TextColor="#FFFFFF"
+                        FontSize="18"
+                            BackgroundColor="Transparent"
+                            CornerRadius="25" 
+                            Margin="20,0,20,0"
+                       Clicked="Close_Clicked"
+                     />
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

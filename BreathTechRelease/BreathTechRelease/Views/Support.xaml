@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:custom="clr-namespace:BreathTechRelease.CustomControls"
+             ios:Page.UseSafeArea="true"
+             x:Class="BreathTechRelease.Views.Support">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="TECHNICAL SUPPORT"
+                    FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="16"
+                   VerticalOptions="CenterAndExpand" 
+                   TextColor="#c6c6c6"/>
+            <Image Source="" HorizontalOptions="End" HeightRequest="40" WidthRequest="40" Margin="0,5,5,10"/>
+        </StackLayout>
+
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+        <StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical">
+
+            <StackLayout VerticalOptions="FillAndExpand" >
+                <!--<WebView Source="http://incapdev.thedream.global/APIStore/api/btsupport.aspx" x:Name="mnWebView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  />-->
+            </StackLayout>
+
+
+            <Frame >
+                <StackLayout Orientation="Vertical" >
+                    <Label x:Name="ErrorMsg" Text="" TextColor="Red"/>
+                    <Label Text="Email Address"/>
+                                  <Frame  Style="{StaticResource FrameStyle}" Padding="10" >
+                    <custom:RoundedEntry Placeholder="  Email Address"
+                           PlaceholderColor="#90d25b"
+                                         
+                           IsEnabled="False"
+                           x:Name="TbEmail" Style="{StaticResource EntryStyle}" />
+                                      </Frame>
+                    <Label Text="User Name"/>
+
+                                                      <Frame  Style="{StaticResource FrameStyle}">
+                    <custom:RoundedEntry Placeholder="  User Name"
+                           PlaceholderColor="#90d25b"
+                           IsEnabled="False"
+                           x:Name="TbName" Style="{StaticResource EntryStyle}"/>
+</Frame>
+                    <Label Margin="0,20,0,0"
+                           Text="Your Feedback"/>
+                   <Frame  Style="{StaticResource FrameStyle}">
+                    <custom:RoundedEntry Placeholder="  Your Feedback" 
+                           PlaceholderColor="#90d25b" 
+                           IsTextPredictionEnabled="True"  
+                           HorizontalOptions="FillAndExpand"
+                                         
+                           x:Name="TBFeedback" Style="{StaticResource EntryStyle}" />
+</Frame>
+                    <Button Margin="0,20,0,0"
+                            Text="Send"
+                             BackgroundColor="#2a2e3a"
+                            CornerRadius="25"
+                            HeightRequest="50"
+                            TextColor="White"
+                            Clicked="Send_Clicked"/>
+                </StackLayout>
+            </Frame>
+            <StackLayout VerticalOptions="End"
+                         BackgroundColor="#2a2e3a">
+
+                <Button Text="Continue" 
+                        TextTransform="None"
+                            TextColor="White"
+                            BackgroundColor="#2a2e3a"
+                            CornerRadius="25" 
+                            Margin="20,0,20,0"
+                            Clicked="Continue_Clicked"
+                     />
+            </StackLayout>
+        </StackLayout>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
