@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:themes = "clr-namespace:BreathTechRelease.Themes;assembly=BreathTechRelease"
+             x:Class="BreathTechRelease.App"
+             >
+   
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <themes:LightTheme />
+                
+            </ResourceDictionary.MergedDictionaries >
+            <!--Global Styles-->
+            <Color x:Key="NavigationPrimary">#FFF</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="BarTextColor" Value="Gray" />
+            </Style>
+              <Color x:Key="LightGreenColor">#2FA999</Color>
+            <Color x:Key="BorderColor">#D8D8D8</Color>
+            
+            <Style x:Key="LableStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#666666" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+            <Style x:Key="FrameStyle" TargetType="Frame">
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="CornerRadius" >
+                   <OnPlatform x:TypeArguments="x:Single">
+            <On Platform="iOS" Value="10"/>
+                       <On Platform="Android" Value="10"/>
+
+        </OnPlatform>
+                </Setter>
+                <Setter Property="BorderColor" Value="{StaticResource BorderColor}" />
+            </Style>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="HeightRequest" Value="{OnPlatform Android='40',iOS='52'}"></Setter>
+                <Setter Property="Margin" Value="15,0,0,0"></Setter>
+            </Style>
+             <Style x:Key="PickerStyle" TargetType="Picker">
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="Margin" Value="15,0,0,0"></Setter>
+            </Style>
+            <Style x:Key="RegularLabelStyle" TargetType="Label">
+                <Setter Property="FontSize">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double" iOS="17" Android="16" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="SmallLabelStyle" TargetType="Label">
+                <Setter Property="FontSize">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double" iOS="9" Android="14" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+
+        <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+            <On Platform="Android" Value="OpenSans-Bold.ttf#Open Sans" />
+            <On Platform="iOS" Value="OpenSans-Bold" />
+        </OnPlatform>
+        <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
+            <On Platform="Android" Value="OpenSans-Regular.ttf#Open Sans" />
+            <On Platform="iOS" Value="OpenSans-Regular" />
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="x:String" x:Key="SemiBold">
+            <On Platform="Android" Value="OpenSans-SemiBold.ttf#Open Sans" />
+            <On Platform="iOS" Value="OpenSans-SemiBold" />
+        </OnPlatform>
+    </Application.Resources>
+    
+</Application>

@@ -1,0 +1,195 @@
+{
+  "project_info": {
+    "project_number": "951304349520",
+    "firebase_url": "https://breathtechapp-821ca.firebaseio.com",
+    "project_id": "breathtechapp-821ca",
+    "storage_bucket": "breathtechapp-821ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951304349520:android:c43b1bf0a89b36000b6e55",
+        "android_client_info": {
+          "package_name": "com.informationcapital.BreathTech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951304349520-0ke7g6qicka5d8kopsp7bb2dbc8l4di2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.informationcapital.BreathTech",
+            "certificate_hash": "0ed28673c5ad4dbca7cd2262aa46b2e5687c821d"
+          }
+        },
+        {
+          "client_id": "951304349520-1a75eibl158ek2r824nt5rqr47tgnrom.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.informationcapital.BreathTech",
+            "certificate_hash": "b521cbfe466c36f8c27fd960e1f8a7c32c5b4b0f"
+          }
+        },
+        {
+          "client_id": "951304349520-4a1u9r211j4nuepfr7qgg3s7bhebjl7c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.informationcapital.BreathTech",
+            "certificate_hash": "4b69c497e2e1696db8319624b56046917a937955"
+          }
+        },
+        {
+          "client_id": "951304349520-4fdl5k6iu8957f64m8ffppapom7rcosu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.informationcapital.BreathTech",
+            "certificate_hash": "60dcc95d308809ba45d4876ca5b27629cc6816d9"
+          }
+        },
+        {
+          "client_id": "951304349520-4kq8l4jefe5gu3vosep6plj46vdbcren.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.informationcapital.BreathTech",
+            "certificate_hash": "2019a834f6ea232ad32b3ec19e4327946dc3f7a4"
+          }
+        },
+        {
+          "client_id": "951304349520-g6tbd7cqg9m1fe11v8nuposvcve32vjs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.informationcapital.BreathTech",
+            "certificate_hash": "d166092a7d3d1bdd9aea3901c864ee4efac85847"
+          }
+        },
+        {
+          "client_id": "951304349520-r0usd5449mt9nrhb8vbi206hbq82fus2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.informationcapital.BreathTech",
+            "certificate_hash": "eeb3ddee26709c84eb2fc6a5cb8e3cd0a50a8e0a"
+          }
+        },
+        {
+          "client_id": "951304349520-u9k312r8a2ssqv5ulobj43eq30svut9g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.informationcapital.BreathTech",
+            "certificate_hash": "138649d7ebf94de1ef9de0d4c3794b6b38c01a21"
+          }
+        },
+        {
+          "client_id": "951304349520-qdst276pghc8gsttqsgv56khso7m1tan.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpQJaIUJSihYrEquw56eGXjzvWl1PUmPw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951304349520-qdst276pghc8gsttqsgv56khso7m1tan.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "951304349520-7erbm33iu3q28345lu2mn3funlt6koge.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.neosoft.BreathTechRelease"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951304349520:android:e69c5bef156a610a0b6e55",
+        "android_client_info": {
+          "package_name": "com.informationcapital.BreathTechX"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951304349520-2h3sughdst2g8s4k7nk4mimb006c22m7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.informationcapital.BreathTechX",
+            "certificate_hash": "4fd920759286e2f4d684dd5d69ddbccdbb0e670d"
+          }
+        },
+        {
+          "client_id": "951304349520-8cfmh3orahu6ndauurriboc4h2faqutq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.informationcapital.BreathTechX",
+            "certificate_hash": "738d3257997260f371bf5e7a00e263ae51856690"
+          }
+        },
+        {
+          "client_id": "951304349520-c1dfq912oubp400dr92cg681dils4q2q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.informationcapital.BreathTechX",
+            "certificate_hash": "983bc5c1715f1a33cd0a91fc606b285de11b77aa"
+          }
+        },
+        {
+          "client_id": "951304349520-dj3k8vsj11qrer40i94eq2v4v7t2vh7d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.informationcapital.BreathTechX",
+            "certificate_hash": "c054c4926e961a077f3e9ba9433a76512a372af3"
+          }
+        },
+        {
+          "client_id": "951304349520-fn68qv0883etb1um3kn3e89rg03qt7s1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.informationcapital.BreathTechX",
+            "certificate_hash": "8a6cb9387f7b25c5910947a389d1062436120357"
+          }
+        },
+        {
+          "client_id": "951304349520-h2na4tvvenne8u6eqiekk7dlqonci7dq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.informationcapital.BreathTechX",
+            "certificate_hash": "c266b7558201461d7f7dbb554263ce2078fbc8a2"
+          }
+        },
+        {
+          "client_id": "951304349520-qdst276pghc8gsttqsgv56khso7m1tan.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpQJaIUJSihYrEquw56eGXjzvWl1PUmPw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951304349520-qdst276pghc8gsttqsgv56khso7m1tan.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "951304349520-7erbm33iu3q28345lu2mn3funlt6koge.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.neosoft.BreathTechRelease"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

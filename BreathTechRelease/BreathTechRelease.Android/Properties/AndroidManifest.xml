@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0" package="com.informationcapital.BreathTechX" android:installLocation="preferExternal" android:versionCode="44">
+	<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="29" />
+	<!--<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="3" android:versionName="1.0" package="com.informationcapital.BreathTech" android:installLocation="preferExternal">-->
+	<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="29" />
+	<application android:label="BreathTech" android:usesCleartextTraffic="true" android:debuggable="false" android:icon="@drawable/App_Icon" android:hardwareAccelerated="false">
+		<meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true" />
+		<activity android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity" android:launchMode="singleTask">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:scheme="${applicationId}.braintree" />
+			</intent-filter>
+		</activity>
+		<provider android:name="android.support.v4.content.FileProvider" android:authorities="com.informationcapital.BreathTech.fileprovider" android:exported="false" android:grantUriPermissions="true">
+			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
+		</provider>
+	</application>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+</manifest>

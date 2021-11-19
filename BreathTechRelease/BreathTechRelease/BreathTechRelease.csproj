@@ -1,0 +1,111 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <ReleaseVersion>0.2</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Incap\**" />
+    <EmbeddedResource Remove="Incap\**" />
+    <None Remove="Incap\**" />
+    <None Remove="Resources\googlelogin.svg" />
+    <None Remove="Resources\applelogin.svg" />
+    <None Remove="Resources\background.svg" />
+    <None Remove=".DS_Store" />
+    <EmbeddedResource Remove="PopUps\CouponPopUp.xaml" />
+    <Compile Remove="PopUps\CouponPopUp.xaml.cs" />
+    <EmbeddedResource Remove="PopUps\PaymentPopup.xaml" />
+    <Compile Remove="PopUps\PaymentPopup.xaml.cs" />
+    <EmbeddedResource Remove="PopUps\SubscriptionInfoPopup.xaml" />
+    <Compile Remove="PopUps\SubscriptionInfoPopup.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ViewModels\IPayService.cs" />
+    <Compile Remove="ViewModels\PaymentPageViewModel.cs" />
+    <Compile Remove="Views\PaymentPage.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\PaymentPage.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.475" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Plugin.GoogleClient" Version="2.1.5" />
+    <PackageReference Include="RestSharp" Version="106.10.1" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.3" />
+    <PackageReference Include="SkiaSharp.Extended" Version="1.60.0" />
+    <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.1.1" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="InTheHand.Forms" Version="2.0.2020.826" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.4.11.982" />
+    <PackageReference Include="Plugin.InAppBilling" Version="2.0.0" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
+    <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
+    <PackageReference Include="IntelliAbb.Xamarin.Controls" Version="1.0.148" />
+    <PackageReference Include="Xamarin.Auth" Version="1.7.0" />
+    <PackageReference Include="CarouselView.FormsPlugin" Version="6.0.0" />
+    <PackageReference Include="Refit" Version="5.1.67" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\googlelogin.svg" />
+    <EmbeddedResource Include="Resources\applelogin.svg" />
+    <EmbeddedResource Include="Resources\background.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Views\ViewMain.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="IncapIntergration">
+      <HintPath>..\..\..\BreathTech\BreathTech_Beta\Incap\IncapIntergration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <HintPath>..\..\..\BreathTech\BreathTech_Beta\Incap\System.Web.Services.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Manager\" />
+    <Folder Include="Constant\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BreathTechRelease.sln" />
+    <None Include="PopUps\CountryPopUp.xaml" />
+    <None Include="PopUps\CouponPopUp.xaml" />
+    <None Include="PopUps\PaymentPopup.xaml" />
+    <None Include="PopUps\SearchPopup.xaml" />
+    <None Include="PopUps\SubscriptionInfoPopup.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\CustomWebView.xaml.cs">
+      <DependentUpon>CustomWebView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="SearchBarRealTime.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+</Project>
