@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>951304349520-m88g1r0tcgmu85aubf29vun87tu3a5k2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.951304349520-m88g1r0tcgmu85aubf29vun87tu3a5k2</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>951304349520-r0usd5449mt9nrhb8vbi206hbq82fus2.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB7ySRQGeCvf33efJsSwyZhoF8xfFbttOQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>951304349520</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.breathTech.app</string>
+	<key>PROJECT_ID</key>
+	<string>breathtechapp-821ca</string>
+	<key>STORAGE_BUCKET</key>
+	<string>breathtechapp-821ca.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:951304349520:ios:61f7bb2ce067713d0b6e55</string>
+	<key>DATABASE_URL</key>
+	<string>https://breathtechapp-821ca.firebaseio.com</string>
+</dict>
+</plist>

@@ -1,0 +1,1061 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{71946185-27F2-47A6-B6B0-37E235A5AF2A}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{65C0771A-452F-423B-995C-F0AE46E643BA}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BreathTechRelease.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>BreathTechRelease.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <ProvisioningType>manual</ProvisioningType>
+    <ReleaseVersion>1.1</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+    <PackageVersion>2.0</PackageVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <OptimizePNGs>true</OptimizePNGs>
+    <CodesignKey>iPhone Developer: Arjun Balip (WCHVM2DPRK)</CodesignKey>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <CodesignEntitlements>CustomEntitlements.plist</CodesignEntitlements>
+    <CodesignProvision>BT_App_Development(25-oct-2021)</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <CodesignProvision>BTAppStore</CodesignProvision>
+    <CodesignKey>Apple Distribution: Breath Tech App (Pty) Ltd (2NY99YCV2W)</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer: Arjun Balip (WCHVM2DPRK)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+    <CodesignProvision>BT_App_Development(25-oct-2021)</CodesignProvision>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>Apple Distribution: Breath Tech App (Pty) Ltd (2NY99YCV2W)</CodesignKey>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchExtraArgs>--linkskip=alarm</MtouchExtraArgs>
+    <AssemblyName>breathtechrelease.iOS</AssemblyName>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>BTAppStore</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Entitlements.plist" />
+    <Compile Include="Renderers\CustomWebViewRenderer.cs" />
+    <Compile Include="Renderers\BaseUrl_iOS.cs" />
+    <BundleResource Include="Resources\meetTheTeam.png" />
+    <BundleResource Include="Resources\OpenSans-SemiBold.ttf" />
+    <BundleResource Include="Resources\OpenSans-Bold.ttf" />
+    <BundleResource Include="Resources\OpenSans-Regular.ttf" />
+    <Compile Include="Renderers\BaseUrlDocument_iOS.cs" />
+    <BundleResource Include="Resources\sa.png" />
+    <BundleResource Include="Resources\ad.png" />
+    <BundleResource Include="Resources\ae.png" />
+    <BundleResource Include="Resources\af.png" />
+    <BundleResource Include="Resources\ag.png" />
+    <BundleResource Include="Resources\ai.png" />
+    <BundleResource Include="Resources\al.png" />
+    <BundleResource Include="Resources\am.png" />
+    <BundleResource Include="Resources\ao.png" />
+    <BundleResource Include="Resources\aq.png" />
+    <BundleResource Include="Resources\ar.png" />
+    <BundleResource Include="Resources\as.png" />
+    <BundleResource Include="Resources\at.png" />
+    <BundleResource Include="Resources\au.png" />
+    <BundleResource Include="Resources\aw.png" />
+    <BundleResource Include="Resources\ax.png" />
+    <BundleResource Include="Resources\az.png" />
+    <BundleResource Include="Resources\ba.png" />
+    <BundleResource Include="Resources\bb.png" />
+    <BundleResource Include="Resources\bd.png" />
+    <BundleResource Include="Resources\be.png" />
+    <BundleResource Include="Resources\bf.png" />
+    <BundleResource Include="Resources\bg.png" />
+    <BundleResource Include="Resources\bh.png" />
+    <BundleResource Include="Resources\bi.png" />
+    <BundleResource Include="Resources\bj.png" />
+    <BundleResource Include="Resources\bl.png" />
+    <BundleResource Include="Resources\bm.png" />
+    <BundleResource Include="Resources\bn.png" />
+    <BundleResource Include="Resources\bo.png" />
+    <BundleResource Include="Resources\bq.png" />
+    <BundleResource Include="Resources\br.png" />
+    <BundleResource Include="Resources\bs.png" />
+    <BundleResource Include="Resources\bt.png" />
+    <BundleResource Include="Resources\bv.png" />
+    <BundleResource Include="Resources\bw.png" />
+    <BundleResource Include="Resources\by.png" />
+    <BundleResource Include="Resources\bz.png" />
+    <BundleResource Include="Resources\ca.png" />
+    <BundleResource Include="Resources\cc.png" />
+    <BundleResource Include="Resources\cd.png" />
+    <BundleResource Include="Resources\cf.png" />
+    <BundleResource Include="Resources\cg.png" />
+    <BundleResource Include="Resources\ch.png" />
+    <BundleResource Include="Resources\ci.png" />
+    <BundleResource Include="Resources\ck.png" />
+    <BundleResource Include="Resources\cl.png" />
+    <BundleResource Include="Resources\cm.png" />
+    <BundleResource Include="Resources\cn.png" />
+    <BundleResource Include="Resources\co.png" />
+    <BundleResource Include="Resources\cr.png" />
+    <BundleResource Include="Resources\cu.png" />
+    <BundleResource Include="Resources\cv.png" />
+    <BundleResource Include="Resources\cw.png" />
+    <BundleResource Include="Resources\cx.png" />
+    <BundleResource Include="Resources\cy.png" />
+    <BundleResource Include="Resources\cz.png" />
+    <BundleResource Include="Resources\de.png" />
+    <BundleResource Include="Resources\dj.png" />
+    <BundleResource Include="Resources\dk.png" />
+    <BundleResource Include="Resources\dm.png" />
+    <BundleResource Include="Resources\do.png" />
+    <BundleResource Include="Resources\dz.png" />
+    <BundleResource Include="Resources\ec.png" />
+    <BundleResource Include="Resources\ee.png" />
+    <BundleResource Include="Resources\eg.png" />
+    <BundleResource Include="Resources\eh.png" />
+    <BundleResource Include="Resources\er.png" />
+    <BundleResource Include="Resources\es.png" />
+    <BundleResource Include="Resources\et.png" />
+    <BundleResource Include="Resources\fi.png" />
+    <BundleResource Include="Resources\fj.png" />
+    <BundleResource Include="Resources\fk.png" />
+    <BundleResource Include="Resources\fm.png" />
+    <BundleResource Include="Resources\fo.png" />
+    <BundleResource Include="Resources\fr.png" />
+    <BundleResource Include="Resources\ga.png" />
+    <BundleResource Include="Resources\gb-eng.png" />
+    <BundleResource Include="Resources\gb-nir.png" />
+    <BundleResource Include="Resources\gb-sct.png" />
+    <BundleResource Include="Resources\gb-wls.png" />
+    <BundleResource Include="Resources\gb.png" />
+    <BundleResource Include="Resources\gd.png" />
+    <BundleResource Include="Resources\ge.png" />
+    <BundleResource Include="Resources\gf.png" />
+    <BundleResource Include="Resources\gg.png" />
+    <BundleResource Include="Resources\gh.png" />
+    <BundleResource Include="Resources\gi.png" />
+    <BundleResource Include="Resources\gl.png" />
+    <BundleResource Include="Resources\gm.png" />
+    <BundleResource Include="Resources\gn.png" />
+    <BundleResource Include="Resources\gp.png" />
+    <BundleResource Include="Resources\gq.png" />
+    <BundleResource Include="Resources\gr.png" />
+    <BundleResource Include="Resources\gs.png" />
+    <BundleResource Include="Resources\gt.png" />
+    <BundleResource Include="Resources\gu.png" />
+    <BundleResource Include="Resources\gw.png" />
+    <BundleResource Include="Resources\gy.png" />
+    <BundleResource Include="Resources\hk.png" />
+    <BundleResource Include="Resources\hm.png" />
+    <BundleResource Include="Resources\hn.png" />
+    <BundleResource Include="Resources\hr.png" />
+    <BundleResource Include="Resources\ht.png" />
+    <BundleResource Include="Resources\hu.png" />
+    <BundleResource Include="Resources\id.png" />
+    <BundleResource Include="Resources\ie.png" />
+    <BundleResource Include="Resources\il.png" />
+    <BundleResource Include="Resources\im.png" />
+    <BundleResource Include="Resources\in.png" />
+    <BundleResource Include="Resources\io.png" />
+    <BundleResource Include="Resources\iq.png" />
+    <BundleResource Include="Resources\ir.png" />
+    <BundleResource Include="Resources\is.png" />
+    <BundleResource Include="Resources\it.png" />
+    <BundleResource Include="Resources\je.png" />
+    <BundleResource Include="Resources\jm.png" />
+    <BundleResource Include="Resources\jo.png" />
+    <BundleResource Include="Resources\jp.png" />
+    <BundleResource Include="Resources\ke.png" />
+    <BundleResource Include="Resources\kg.png" />
+    <BundleResource Include="Resources\kh.png" />
+    <BundleResource Include="Resources\ki.png" />
+    <BundleResource Include="Resources\km.png" />
+    <BundleResource Include="Resources\kn.png" />
+    <BundleResource Include="Resources\kp.png" />
+    <BundleResource Include="Resources\kr.png" />
+    <BundleResource Include="Resources\kw.png" />
+    <BundleResource Include="Resources\ky.png" />
+    <BundleResource Include="Resources\kz.png" />
+    <BundleResource Include="Resources\la.png" />
+    <BundleResource Include="Resources\lb.png" />
+    <BundleResource Include="Resources\lc.png" />
+    <BundleResource Include="Resources\li.png" />
+    <BundleResource Include="Resources\lk.png" />
+    <BundleResource Include="Resources\lr.png" />
+    <BundleResource Include="Resources\ls.png" />
+    <BundleResource Include="Resources\lt.png" />
+    <BundleResource Include="Resources\lu.png" />
+    <BundleResource Include="Resources\lv.png" />
+    <BundleResource Include="Resources\ly.png" />
+    <BundleResource Include="Resources\ma.png" />
+    <BundleResource Include="Resources\mc.png" />
+    <BundleResource Include="Resources\md.png" />
+    <BundleResource Include="Resources\me.png" />
+    <BundleResource Include="Resources\mf.png" />
+    <BundleResource Include="Resources\mg.png" />
+    <BundleResource Include="Resources\mh.png" />
+    <BundleResource Include="Resources\mk.png" />
+    <BundleResource Include="Resources\ml.png" />
+    <BundleResource Include="Resources\mm.png" />
+    <BundleResource Include="Resources\mn.png" />
+    <BundleResource Include="Resources\mo.png" />
+    <BundleResource Include="Resources\mp.png" />
+    <BundleResource Include="Resources\mq.png" />
+    <BundleResource Include="Resources\mr.png" />
+    <BundleResource Include="Resources\ms.png" />
+    <BundleResource Include="Resources\mt.png" />
+    <BundleResource Include="Resources\mu.png" />
+    <BundleResource Include="Resources\mv.png" />
+    <BundleResource Include="Resources\mw.png" />
+    <BundleResource Include="Resources\mx.png" />
+    <BundleResource Include="Resources\my.png" />
+    <BundleResource Include="Resources\mz.png" />
+    <BundleResource Include="Resources\na.png" />
+    <BundleResource Include="Resources\nc.png" />
+    <BundleResource Include="Resources\ne.png" />
+    <BundleResource Include="Resources\nf.png" />
+    <BundleResource Include="Resources\ng.png" />
+    <BundleResource Include="Resources\ni.png" />
+    <BundleResource Include="Resources\nl.png" />
+    <BundleResource Include="Resources\no.png" />
+    <BundleResource Include="Resources\np.png" />
+    <BundleResource Include="Resources\nr.png" />
+    <BundleResource Include="Resources\nu.png" />
+    <BundleResource Include="Resources\nz.png" />
+    <BundleResource Include="Resources\om.png" />
+    <BundleResource Include="Resources\pa.png" />
+    <BundleResource Include="Resources\pe.png" />
+    <BundleResource Include="Resources\pf.png" />
+    <BundleResource Include="Resources\pg.png" />
+    <BundleResource Include="Resources\ph.png" />
+    <BundleResource Include="Resources\pk.png" />
+    <BundleResource Include="Resources\pl.png" />
+    <BundleResource Include="Resources\pm.png" />
+    <BundleResource Include="Resources\pn.png" />
+    <BundleResource Include="Resources\pr.png" />
+    <BundleResource Include="Resources\ps.png" />
+    <BundleResource Include="Resources\pt.png" />
+    <BundleResource Include="Resources\pw.png" />
+    <BundleResource Include="Resources\py.png" />
+    <BundleResource Include="Resources\qa.png" />
+    <BundleResource Include="Resources\re.png" />
+    <BundleResource Include="Resources\ro.png" />
+    <BundleResource Include="Resources\rs.png" />
+    <BundleResource Include="Resources\ru.png" />
+    <BundleResource Include="Resources\rw.png" />
+    <BundleResource Include="Resources\sb.png" />
+    <BundleResource Include="Resources\sc.png" />
+    <BundleResource Include="Resources\sd.png" />
+    <BundleResource Include="Resources\se.png" />
+    <BundleResource Include="Resources\sg.png" />
+    <BundleResource Include="Resources\sh.png" />
+    <BundleResource Include="Resources\si.png" />
+    <BundleResource Include="Resources\sj.png" />
+    <BundleResource Include="Resources\sk.png" />
+    <BundleResource Include="Resources\sl.png" />
+    <BundleResource Include="Resources\sm.png" />
+    <BundleResource Include="Resources\sn.png" />
+    <BundleResource Include="Resources\so.png" />
+    <BundleResource Include="Resources\sr.png" />
+    <BundleResource Include="Resources\ss.png" />
+    <BundleResource Include="Resources\st.png" />
+    <BundleResource Include="Resources\sv.png" />
+    <BundleResource Include="Resources\sx.png" />
+    <BundleResource Include="Resources\sy.png" />
+    <BundleResource Include="Resources\sz.png" />
+    <BundleResource Include="Resources\tc.png" />
+    <BundleResource Include="Resources\td.png" />
+    <BundleResource Include="Resources\tf.png" />
+    <BundleResource Include="Resources\tg.png" />
+    <BundleResource Include="Resources\th.png" />
+    <BundleResource Include="Resources\tj.png" />
+    <BundleResource Include="Resources\tk.png" />
+    <BundleResource Include="Resources\tl.png" />
+    <BundleResource Include="Resources\tm.png" />
+    <BundleResource Include="Resources\tn.png" />
+    <BundleResource Include="Resources\to.png" />
+    <BundleResource Include="Resources\tr.png" />
+    <BundleResource Include="Resources\tt.png" />
+    <BundleResource Include="Resources\TutorialImage_.png" />
+    <BundleResource Include="Resources\tv.png" />
+    <BundleResource Include="Resources\tw.png" />
+    <BundleResource Include="Resources\tz.png" />
+    <BundleResource Include="Resources\ua.png" />
+    <BundleResource Include="Resources\ug.png" />
+    <BundleResource Include="Resources\um.png" />
+    <BundleResource Include="Resources\us.png" />
+    <BundleResource Include="Resources\uy.png" />
+    <BundleResource Include="Resources\uz.png" />
+    <BundleResource Include="Resources\va.png" />
+    <BundleResource Include="Resources\vc.png" />
+    <BundleResource Include="Resources\ve.png" />
+    <BundleResource Include="Resources\vg.png" />
+    <BundleResource Include="Resources\vi.png" />
+    <BundleResource Include="Resources\vn.png" />
+    <BundleResource Include="Resources\vu.png" />
+    <BundleResource Include="Resources\wf.png" />
+    <BundleResource Include="Resources\ws.png" />
+    <BundleResource Include="Resources\xk.png" />
+    <BundleResource Include="Resources\ye.png" />
+    <BundleResource Include="Resources\yt.png" />
+    <BundleResource Include="Resources\za.png" />
+    <BundleResource Include="Resources\zm.png" />
+    <BundleResource Include="Resources\zw.png" />
+    <BundleResource Include="Resources\BreathTechLogo.png" />
+    <Compile Include="Renderers\MyListViewRenderer.cs" />
+    <Compile Include="Renderers\PageiOS.cs" />
+    <BundleResource Include="Resources\navigation_Icon.jpg" />
+    <BundleResource Include="Resources\Subscribe_Icon.jpg" />
+    <Compile Include="Renderers\ExtendedTabbedPageRenderer.cs" />
+    <Compile Include="Renderers\BorderedEditorRenderer.cs" />
+    <BundleResource Include="Resources\PayGate_Card_Brand_Logos_PayGate.png">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </BundleResource>
+    <BundleResource Include="Resources\Bodywise_Hypertension.png" />
+    <BundleResource Include="Resources\search.png" />
+    <BundleResource Include="GoogleService-Info.plist" />
+    <BundleResource Include="Resources\Archive.png" />
+    <BundleResource Include="Resources\PeopleUsing.png" />
+    <BundleResource Include="Resources\UpComing.png" />
+    <Compile Include="Renderers\DatePickerCtrlRenderer.cs" />
+    <BundleResource Include="Resources\Archive1.png" />
+    <Compile Include="Renderers\PickerRendereriOS.cs" />
+    <Compile Include="Renderers\RoundedEntryRendereriOS.cs" />
+    <Compile Include="Services\AppleSignInService.cs" />
+    <Compile Include="Renderers\AppleSignInButtonRenderer.cs" />
+    <Compile Include="Dependency\MediaPermissionDenied.cs" />
+    <None Include="CustomEntitlements.plist" />
+    <Compile Include="Renderers\ImageEntryRenderer.cs" />
+    <BundleResource Include="Resources\Icon_Home_Email.png" />
+    <BundleResource Include="Resources\Icon_Home_Email%402x.png" />
+    <BundleResource Include="Resources\Icon_Home_Email%403x.png" />
+    <BundleResource Include="Resources\emailicon.png" />
+    <BundleResource Include="Resources\emailicon%402x.png" />
+    <BundleResource Include="Resources\emailicon%403x.png" />
+    <BundleResource Include="Resources\lockicon.png" />
+    <BundleResource Include="Resources\lockicon%402x.png" />
+    <BundleResource Include="Resources\lockicon%403x.png" />
+    <BundleResource Include="Resources\TutorialBackground%402x.jpg" />
+    <BundleResource Include="Resources\TutorialBackground%403x.jpg" />
+    <BundleResource Include="Resources\Subscribe%402x.png" />
+    <BundleResource Include="Resources\Subscribe%403x.png" />
+    <BundleResource Include="Resources\Hamburgericon%403x.png" />
+    <BundleResource Include="Resources\Hamburgericon%402x.png" />
+    <BundleResource Include="Resources\Hamburgericon.png" />
+    <Compile Include="Renderers\CustomeContentPage.cs" />
+    <BundleResource Include="Resources\Icon_Google.png" />
+    <BundleResource Include="Resources\ic_googleLogin.png" />
+    <Compile Include="Renderers\CustomLabelRender.cs" />
+    <BundleResource Include="Resources\GreenCircle.png" />
+    <BundleResource Include="Resources\AdduserIcon.png" />
+    <BundleResource Include="Resources\eclipseIcon.png" />
+    <BundleResource Include="Resources\AboutUs.png" />
+    <BundleResource Include="Resources\AboutUs%402x.png" />
+    <BundleResource Include="Resources\AboutUs%403x.png" />
+    <BundleResource Include="Resources\AdduserIcon%402x.png" />
+    <BundleResource Include="Resources\PrivacyPolicy.png" />
+    <BundleResource Include="Resources\MyProfile%403x.png" />
+    <BundleResource Include="Resources\MyProfile%402x.png" />
+    <BundleResource Include="Resources\MyProfile.png" />
+    <BundleResource Include="Resources\AdduserIcon%403x.png" />
+    <BundleResource Include="Resources\PrivacyPolicy%402x.png" />
+    <BundleResource Include="Resources\PrivacyPolicy%403x.png" />
+    <BundleResource Include="Resources\Support.png" />
+    <BundleResource Include="Resources\Support%402x.png" />
+    <BundleResource Include="Resources\Support%403x.png" />
+    <BundleResource Include="Resources\TermsOfUse.png" />
+    <BundleResource Include="Resources\TermsOfUse%402x.png" />
+    <BundleResource Include="Resources\TermsOfUse%403x.png" />
+    <BundleResource Include="Resources\eclipseIcon%403x.png" />
+    <BundleResource Include="Resources\eclipseIcon%402x.png" />
+    <BundleResource Include="Resources\Icon_My_Account.png" />
+    <BundleResource Include="Resources\MyAccountsIcon.png" />
+    <BundleResource Include="Resources\Subscription.png" />
+    <BundleResource Include="Resources\Subscription%402x.png" />
+    <BundleResource Include="Resources\Subscription%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <BundleResource Include="Resources\tab_about%402x.png" />
+    <BundleResource Include="Resources\tab_about%403x.png" />
+    <BundleResource Include="Resources\tab_feed.png" />
+    <BundleResource Include="Resources\tab_feed%402x.png" />
+    <BundleResource Include="Resources\tab_feed%403x.png" />
+    <BundleResource Include="Resources\xamarin_logo.png" />
+    <BundleResource Include="Resources\xamarin_logo%402x.png" />
+    <BundleResource Include="Resources\xamarin_logo%403x.png" />
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\App_Icon%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BTA 40x40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BTA 60x60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BTA 58x58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BTA 87x87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BTA 80x80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BTA 120x120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BTA 120x120-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BreathTech76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BreathTech152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BreathTech167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BreathTech40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BreathTech80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BreathTech20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BreathTech40-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BreathTech29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BreathTech58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\BreathTech10244.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ic_apple.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ic_apple.imageset\ic_apple.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ic_apple.imageset\ic_apple-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ic_apple.imageset\ic_apple-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="InTheHand.Forms">
+      <Version>2.0.2020.826</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Forms.KeyboardOverlap">
+      <Version>1.0.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.GoogleClient">
+      <Version>2.1.5</Version>
+    </PackageReference>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.1.0.475</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.InAppBilling">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>5.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.Permissions">
+      <Version>6.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Numerics.Vectors">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="IntelliAbb.Xamarin.Controls">
+      <Version>1.0.148</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Auth">
+      <Version>1.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="CarouselView.FormsPlugin">
+      <Version>6.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\BreathTechRelease\BreathTechRelease.csproj">
+      <Project>{0BC2990B-7685-4135-8ED5-C2EBCA2111A5}</Project>
+      <Name>BreathTechRelease</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Dan_About.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Dorion_About.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DrManga_About.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DiaphramaticBreathing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EnergyToEffor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EstablishRythm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FastSlow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FindYourPath_BeYourBest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FindYourPath_Bodywise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FindYourPath_BusinessEdge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FindYourPath_GoforGold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FindYourPath_HeartIntelligence.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FindYourPath_HelpingtheHelper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FindYourPath_MakingMagic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FindYourPath_SoulSource.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoforGold_BetweenSets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoforGold_BreathHolding.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoForGold_Introduction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoforGold_Leadingwiththebreath.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoforGold_PreparationforPeakPerformance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoforGold_ReverseRespiration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoforGold_TeamBreathing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoforGold_TwoPhaseBreathing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GoforGold_WimHofMethod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\googlPlus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Graphic_Atom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Green_Bullet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HangoverBreath.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HeadacheBreath.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HeartIntelligence_Anger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HeartIntelligence_Anxiety.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HeartIntelligence_Depression.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HeartIntelligence_FeelingAlone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HeartIntelligence_FeelingOverwhelmed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HeartIntelligence_Grief.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HeartIntelligence_Introduction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HelpingtheHelper_Cleansingyourfield.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HelpingtheHelper_Compassionthroughconnecting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HelpingtheHelper_Listeningwithlove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HelpingtheHelper_Shakingitout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HelpingtheHelper_SpiritualVacuumCleaner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HelpingtheHelperr_Introduction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HelpingtheHelperr_LovingKindness.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Home_Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_launcher_foreground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_launcher_round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Basic_Breathing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_BasicBreathing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Change_Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Cornerstones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Everyday_Breathing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_EverydayBreathing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Find_your_path.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_FindyourPath.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Home_Lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Listen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Media_Library.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_News.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Profile_Picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Profile_Picture_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Tutorial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Watch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconProfilePicture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\InfusingEnergyCell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MakingMagic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MakingMagic_BreathingSandwich.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MakingMagic_FountainBreath.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MakingMagic_Playingwiththechannel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MakingMagic_Precisionunderpressure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MakingMagic_QuickBoostofEnergyandInspiration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MakingMagic_Tappingintothesourceofecstatic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MakingMagic_UnblockingCreativeEnergy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MorningRitual.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NoseVsMouth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PageTitle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SoulSorce_ConsciousConnectedBreathing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SoulSorce_CosmicBreaths.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SoulSorce_DereflexiveBreathing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SoulSorce_MicrocosmicOrbit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SoulSorce_PrayerBreath.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SoulSorce_RelaxedSubtleenergybreathing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SoulSorce_Threewavesofbreathing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SoulSource.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash_screen.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StandingInLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\threeBreathingSpacesYogicBreath.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TutorialBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\App_Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BackgroundImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BeYourbest_Confidence.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BeYourbest_artofmanifestation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BeYourbest_Connectingtoselfandothers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BeYourbest_FeelingAmazing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BeYourbest_FocusandAttention.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BeYourbest_FountainBreath.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BeYourbest_Introduction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BeYourbest_Listeningfrontheheart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BeYourbest_YesBreath.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Bodywise_Asthma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Bodywise_Fatigue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Bodywise_Headaches.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Bodywise_Insomnia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Bodywise_Introduction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Bodywise_IrritableBowelSyndrome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Bodywise_Nausea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Bodywise_Pain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Bodywise_Weightloss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BoredomAndDistraction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Breathwork_Awareness.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Breathwork_Relaxation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Breathwork_TakCharge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BusinessEdge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BusinessEdge_BoostingEnergy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BusinessEdge_BuildingPersonalPresence.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BusinessEdge_ConnstructiveListening.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BusinessEdge_CreatingPerspective.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BusinessEdge_DealingwithConflict.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BusinessEdge_FeelingOverwhelmed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BusinessEdge_Preaparingforapresentation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BusinessEdge_StartingandEndingyourworkday.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BusinessEdge_Worklifeintegration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BusyMind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CoherentBreathing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CoolingDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon58.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\shoppingCart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Bodywise_Hypertension.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NavigationCornerstones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NavigationSS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NavigationMM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NavigationHTH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NavigationHI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NavigationGFG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NavigationETJ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NavigationBYB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NavigationBT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NavigationBE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NavigationB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WhitePages_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WhitePages_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WhitePages_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WhitePages_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WhitePages_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WhitePages_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WhitePages_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WhitePages_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WhitePages_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WhitePages_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WhitePages_11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\ic_apple.imageset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\loginVerifyEmail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tutorialVideo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Subscribe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\subscribeOpaque.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon_Google.png" />
+  </ItemGroup>
+</Project>
